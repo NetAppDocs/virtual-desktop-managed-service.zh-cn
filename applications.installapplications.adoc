@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: applications.installapplications.html 
+summary: 在主机池中的会话主机上安装应用程序 
+keywords:  
+---
+= 在会话主机虚拟机上安装应用程序
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 应用程序交付方法
+
+用户可以访问安装在其用户会话正在运行的会话主机虚拟机（ SHVM ）上的任何应用程序。
+
+系统会根据用户在用户组中的成员资格将其分配到 SHVM 池（ " 主机池 " ）。该主机池中的每个 SHVM 都基于相同的 VM 映像，具有相同的应用程序并在相同的 VM 资源上运行。每次用户连接时，系统都会将其分配给其主机池中当前用户会话最少的 SHVM 。
+
+通过在主机池中的每个 SHVM 中添加或删除应用程序， VDMS-Administrator 可以控制 VDMS-User 可以访问的应用程序。
+
+可以直接在每个 SHVM 上添加（或删除）应用程序，也可以将其添加到单个 VM 映像中，进而将其部署到主机池中的所有 SHVM 。
+
+本文介绍如何在 SHVM 上直接安装应用程序。中介绍了 VM 映像管理 link:images.updateimages.html["本文"]。
+
+
+
+=== 手动访问
+
+通过 VDMs 管理门户，可以通过所有 SHVM 和业务服务器的实时本地管理员帐户直接访问每个 VM 。此访问可用于手动连接到每个 VM ，以手动安装应用程序并进行其他配置更改。
+
+此功能可在 " 工作空间 ">" 服务器 ">" 操作 ">" 连接 " 中找到
+
+[role="thumb"]
+image:applications.installapplications-171af.png["900,900"]
+
+如果需要域管理员凭据，则可以使用 VdMS 特权访问管理（ PAM ）功能来生成域管理员凭据。详细信息可以是 link:administration.pam.html["单击此处"]。
+
+
+
+=== VDMS 自动化
+
+在 VDMs" 门户中， " 脚本化事件 " 部分提供了远程运行代码的功能。
+
+在脚本化事件中，存储库选项卡包含 NetApp 发布的 " 全局 " 脚本。可以使用 "+" 添加脚本 " 按钮添加自定义脚本。
+
+在脚本化事件中，活动选项卡包含触发器，此触发器会导致脚本对一组 VM 运行。对于 VDMs" ， " 手动 " 和 " 计划 " 事件类型最好在适当的虚拟机上推送脚本。
+
+
+NOTE: 活动具有许多称为 " 事件类型 " 的可用触发器。对于 VDMS ， " 应用程序安装 " 和 " 应用程序卸载 " 类型不适用。这些触发器是特定于 RDS 的触发器，不应用于 VDMA ，因为 VDMA 是基于 WVD 的服务，并且遵循 RDS 的设计架构。
+
+
+
+=== 其他自动化工具
+
+可以使用第三方管理工具管理 VDMS-3 中的虚拟机。可以通过任何兼容工具应用应用程序更改和其他 VM 配置更改。

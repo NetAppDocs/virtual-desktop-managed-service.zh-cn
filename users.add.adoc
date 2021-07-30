@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: users.add.html 
+summary: 在 VDMs 中添加用户访问权限 
+keywords:  
+---
+= 正在添加用户访问权限
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 创建新用户
+
+.新的 Active Directory 部署（为 VDMA 创建了一个新的 Active Directory 域）
+. 在 VDS 中创建用户
++
+.. 导航到工作空间，选择 " 用户和组 " 选项卡，单击 " 添加 " ，然后选择 " 添加用户 "image:users.add01.png["900,900"]
+.. 填写用户信息，然后单击 " 添加用户 "image:users.add02.png["900,900"]
+
+
+. 使用以下方法之一将其他用户通知 NetApp
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+. 将用户分配到其主机池
++
+.. 在用户和组选项卡上，单击链接到主机池的用户组。例如，组 "Kift WVD Shared" 会链接到 VDMs" 中的 WVD 共享主机池。添加到 "Kift WVD Shared" 的所有用户都将获得对 "WVD Shared" 主机池中会话主机的访问权限。image:users.add03.png["900,900"]
+.. 单击用户框右上角的编辑图标，然后单击 " 添加用户 "image:users.add04.png["900,900"]
+.. 选中要添加的用户旁边的框，然后单击 " 继续 "image:users.add05.png["900,900"]
+.. 有关更多详细说明，请参见 link:users.assigntoappgroup.html["此处"]
+
+
+
+
+.现有 Active Directory 部署（ VDMSis connecting to an existing Active Directory ）
+. 在 Active Directory 中按正常方式创建用户
+. 将用户添加到部署中列出的 Active Directory 组image:users.add06.png["900,900"]
+. 启用 cloudworkspace
+. 使用以下方法之一将其他用户通知 NetApp
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+. 将用户分配到其主机池
++
+.. 在用户和组选项卡上，单击链接到主机池的用户组。例如，组 "Kift WVD Shared" 会链接到 VDMs" 中的 WVD 共享主机池。添加到 "Kift WVD Shared" 的所有用户都将获得对 "WVD Shared" 主机池中会话主机的访问权限。image:users.add03.png["900,900"]
+.. 单击用户框右上角的编辑图标，然后单击 " 添加用户 "image:users.add04.png["900,900"]
+.. 选中要添加的用户旁边的框，然后单击 " 继续 "image:users.add05.png["900,900"]
+.. 有关更多详细说明，请参见 link:users.assigntoappgroup.html["此处"]
+
+
+

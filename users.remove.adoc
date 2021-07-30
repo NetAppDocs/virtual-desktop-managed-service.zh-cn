@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: users.remove.html 
+summary: 在 VDMs 中删除用户访问 
+keywords:  
+---
+= 正在删除用户访问权限
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 删除用户
+
+.新的 Active Directory 部署（为 VDMA 创建了一个新的 Active Directory 域）
+. 在 VDMs. 中删除此用户
++
+.. 导航到工作空间，选择 " 用户和组 " 选项卡，单击要删除的用户旁边的操作点，然后单击 " 删除 "image:users.remove01.png["900,900"]
+.. 此时将显示一个弹出页面，其中包含用于延迟从目录删除和删除的选项image:users.remove02.png["900,900"]
++
+... delay deletion 选项将等待 90 分钟，然后再删除此用户，从而可以取消此过程。建议选中此复选框。
+... 从目录删除选项将删除 Active Directory 用户帐户。应选中此框。
+
+
+
+
+. 使用以下方法之一通知 NetApp 删除了用户
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+
+
+.现有 Active Directory 部署（ VDMSis connecting to an existing Active Directory ）
+. 在 VDMs. 中删除此用户
++
+.. 导航到工作空间，选择 " 用户和组 " 选项卡，单击要删除的用户旁边的操作点，然后单击 " 删除 "image:users.remove01.png["900,900"]
+.. 此时将显示一个弹出页面，其中包含用于延迟从目录删除和删除的选项image:users.remove03.png["900,900"]
++
+... delay deletion 选项将等待 90 分钟，然后再删除此用户，从而可以取消此过程。建议选中此复选框。
+... 从目录删除选项将删除 Active Directory 用户帐户。建议不要选中此框，并且应按照您的组织用户帐户删除过程从 Active Directory 中删除帐户。
+
+
+
+
+. 使用以下方法之一通知 NetApp 删除了用户
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+

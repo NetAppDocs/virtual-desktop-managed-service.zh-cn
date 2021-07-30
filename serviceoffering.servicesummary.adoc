@@ -1,0 +1,133 @@
+---
+sidebar: sidebar 
+permalink: serviceoffering.servicesummary.html 
+summary: VDM 服务产品摘要 
+keywords:  
+---
+= 虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMMS ）服务摘要
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 用户资源分配
+
+
+NOTE: 本文旨在准确描述 VDMs 服务的技术详细信息。服务详细信息可能会发生更改，本文不代表对 NetApp 与任何客户或合作伙伴之间的任何现有协议，合同或其他安排的修正或更改。
+
+
+
+=== 共享用户（ SKU ： vds-subs-shared-user ）
+
+共享用户会话在会话主机虚拟机（ SHVM ）上运行，最多具有 10 个用户会话。分配的共享 SHVM 总数将确保环境中每 10 个共享用户至少有一个共享 SHVM 。
+
+* 为每个共享用户分配的资源： *
+
+* 8/10 的 vCPU 核心
+* 6.4 GiB RAM
+* 25 GiB 存储
+
+
+* 共享 SHVM 技术详细信息： *
+
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]，  和  Azure 虚拟机系列。
+* 128 GiB 标准 SSD 操作系统磁盘
+* 适用于虚拟桌面的 Windows 10 Enterprise
+* FSLogix 连接的容器用户配置文件
+* 为公司共享附加存储
+
+
+
+
+=== VDI 用户（ SKU ： vDM-subs-vdi-user ）
+
+VDI 用户的会话在不同时托管任何其他用户会话的专用会话主机虚拟机（ SHVM ）上运行。VDI SHVM 的总数等于环境中 VDI 用户的总数。
+
+* 为每个 VDI 用户分配的资源： *
+
+* 2 个 vCPU 核心
+* 8 GiB RAM
+* 25 GiB 存储
+
+
+* VDI SHVM 技术详细信息： *
+
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series["Dsv3"]，  和  Azure 虚拟机系列。
+* 128 GiB 标准 HDD 操作系统磁盘
+* 适用于虚拟桌面的 Windows 10 Enterprise
+* FSLogix 连接的容器用户配置文件
+* 为公司共享附加存储
+
+
+
+
+=== GPU 用户（ SKU ： VDM-subs-GPU 用户）
+
+GPU 用户的会话在不同时托管任何其他用户会话的专用会话主机虚拟机（ SHVM ）上运行。GPU SHVM 总数等于环境中的 GPU 用户总数。
+
+* 为每个 GPU 用户分配的资源： *
+
+* 8 GiB GPU RAM
+* 25 GiB 存储
+
+
+* GPU SHVM 技术详细信息： *
+
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series["NVv3"] 和  Azure 虚拟机系列。
+* 128 GiB 标准 HDD 操作系统磁盘
+* 适用于虚拟桌面的 Windows 10 Enterprise
+* FSLogix 连接的容器用户配置文件
+* 为公司共享附加存储
+
+
+
+
+== 其他 VDMS SKU
+
+
+
+=== 业务服务器（ SKU ： VDM-Azure-business-VM ）
+
+可以将业务服务器添加到环境中以支持应用程序和服务。
+
+* 至少为每个业务服务器 VM 分配： *
+
+* 8 个 vCPU 核心
+* 64 GiB RAM
+* 128 GiB 标准 SSD 操作系统磁盘
+* Windows Server 2012R2/2016/2019
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]，  和  Azure 虚拟机系列。
+
+
+
+
+=== 附加存储（ SKU ： VDM-1TB-storage-HPRSCLR ）
+
+数据存储层 _ 是 VDMs 环境的主要存储机制，可在 Azure Files 或 Azure NetApp Files （ ANF ）上运行。所使用的存储技术取决于所购买的 VMS 用户总数。可以按 1 TiB 的增量添加额外容量。
+
+用户配置文件，用户数据，公司共享，应用程序数据和数据库都应从此存储服务运行。最佳做法是尽可能避免将数据存储在 VM 磁盘上。
+
+容量是每个用户分配量（ 25 GiB/ 用户）与购买的额外 TiB 存储之和。
+
+|===
+| 衡量指标 | link:https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#storage-account-scale-targets["Azure Files GPv2"] | link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels["ANF 标准"] | link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels["ANF 高级版"] 
+
+
+| 用户计数 | 10-49 | 50-249 | 超过 250 个 
+
+
+| 最小大小 | 250 GiB | 4 TiB | 4 TiB 
+
+
+| IOPS | 最多 1 ， 000 个 | 高达 250/TiB | 高达 1 ， 000 TiB 
+|===

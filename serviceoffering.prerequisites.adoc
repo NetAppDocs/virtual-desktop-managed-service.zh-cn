@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: serviceoffering.prerequisites.html 
+summary: VDM 前提条件 
+keywords:  
+---
+= 虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDM） 的前提条件
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== M365 许可
+
+VDM 采用 Microsoft Windows 虚拟桌面（ Virtual Desktop ， WVD ）技术构建。WVD 前提条件要求为最终用户分配特定的 Microsoft 365 （ M365 ）许可。此许可不包含在 VDMS-subscription 中， NetApp 不销售或以其他方式提供此许可证。
+
+客户公司，合作伙伴公司和 / 或其 M365 供应商负责确保符合 M365/WVD 许可要求。
+
+有多种 M365 计划支持 VDMD 的 WVD 许可，详细信息可以是 link:https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/["单击此处"]。
+
+
+
+== M365/Azure AD 租户
+
+客户必须具有现有 Azure AD 租户。Microsoft 365 基于相同的 Azure AD 租户结构，因此满足 M365 许可要求（如上所述）也可以满足此要求。
+
+
+
+== CSP 经销商关系
+
+NetApp 通过与 Microsoft 的 CSP 关系将 VDMs 部署到专用 Azure 订阅中。要部署此订阅， NetApp 需要与客户的 Azure AD 租户建立经销商关系。客户 Azure AD 租户的全球管理员可以在此处接受此关系：
+
+https://admin.microsoft.com/Adminportal/Home?invType=ResellerRelationship&partnerId=47c1f6d2-b112-48e0-915f-4304efffb3e8&msppId=0&DAP=true#/BillingAccounts/partner-invitation[]
+
+多合作伙伴功能不会：
+
+* 更改客户的任何现有订阅
+* 过渡客户的现有订阅或帐户所有权
+* 更改任何现有订阅的条款或客户的义务
+* 更改订阅的记录配对项
+* 有关此项的更多详细信息： https://docs.microsoft.com/en-us/partner-center/multipartner[]
+
+
+
+
+=== 委派的管理员权限
+
+邀请链接（如上所示）包括对委派管理员权限的请求。接受后，将在客户的 Azure AD 租户中授予 NetApp 全球管理员和帮助台管理员角色。
+
+
+
+== 虚拟网络范围
+
+VDM 将部署在 Azure 中的虚拟网络上。此网络使用的 /20 IP 范围不能与其环境中的其他网络重叠。
+
+在任何在 VDMs 虚拟网络和任何其他客户网络之间添加网络连接的情况下，与其他网络 IP 范围重叠将中断 VDMs 。因此，将完全未使用的 /20 范围专用于 VDMs 至关重要。
+
+/20 网络范围需要位于以下 IP 范围之一：
+
+* 10.0.0.0 — 10.255.255.255
+* 172.16.0.0 — 172.31.255.255
+* 192.168.0.0 — 192.168.255.255
+
+
+
+
+== 部署 VMS 工作表
+
+客户 / 合作伙伴需要在以下位置完成 Deploy VDMs 工作表：https://www.deployvdms.com/[]
+
+
+
+== 现有 AD 集成
+
+要将 VMS 与现有 Active Directory 域控制器（ AD DC ）集成，还需要满足以下几个前提条件：
+
+
+
+=== 本地域管理员凭据
+
+要建立集成，需要在现有域上使用具有 domainjoin 权限的本地域管理员帐户。
+
+
+
+=== Azure AD Connect
+
+WVD 要求使用 AD Connect 将 Azure AD 与 AD DC 同步。如果尚未设置，则会执行此操作 link:https://www.microsoft.com/en-us/download/details.aspx?id=47594["实用程序"] 需要在 AD DC 上安装和配置。
+
+//== 网络贡献者 vNet 对等的角色 /== 本地网关设备管理员权限要设置 VPN /== DNS 区域（需要更多技术信息） /== 无多域 forrest ，用户必须位于要部署到的域中

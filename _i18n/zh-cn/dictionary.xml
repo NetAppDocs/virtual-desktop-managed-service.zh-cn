@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="78e405c2589d4cf70f6c45795aeb39d9" category="summary">在主机池中的会话主机上安装应用程序</block>
+  <block id="f312c749ffc217d197a80a28842c8749" category="doc">在会话主机虚拟机上安装应用程序</block>
+  <block id="8a17bedfe2ee407739d807567dc8d643" category="section-title">应用程序交付方法</block>
+  <block id="8aa58a967207a06b5c55918c6518e17f" category="paragraph">用户可以访问安装在其用户会话正在运行的会话主机虚拟机（ SHVM ）上的任何应用程序。</block>
+  <block id="beb5d87fe3526985d13cb57799fd1448" category="paragraph">系统会根据用户在用户组中的成员资格将其分配到 SHVM 池（ " 主机池 " ）。该主机池中的每个 SHVM 都基于相同的 VM 映像，具有相同的应用程序并在相同的 VM 资源上运行。每次用户连接时，系统都会将其分配给其主机池中当前用户会话最少的 SHVM 。</block>
+  <block id="6f19c28c9fc064fbf50be8c483387ef5" category="paragraph">通过在主机池中的每个 SHVM 中添加或删除应用程序， VDMS-Administrator 可以控制 VDMS-User 可以访问的应用程序。</block>
+  <block id="ad0fd6dc94ec49eef29883321644c80d" category="paragraph">可以直接在每个 SHVM 上添加（或删除）应用程序，也可以将其添加到单个 VM 映像中，进而将其部署到主机池中的所有 SHVM 。</block>
+  <block id="8acadeccb90bf205135348e4902b9c20" category="inline-link-macro">本文</block>
+  <block id="28c82cd98785586b2bd9658fccd627e3" category="paragraph">本文介绍如何在 SHVM 上直接安装应用程序。中介绍了 VM 映像管理 <block ref="a92d27a5912cac3bb7dab83fae80db9f" category="inline-link-macro-rx"></block>。</block>
+  <block id="384aca537b9fadb1f16d457b39bc0857" category="section-title">手动访问</block>
+  <block id="6dee285c200485e340f5129cb6151dd9" category="paragraph">通过 VDMs 管理门户，可以通过所有 SHVM 和业务服务器的实时本地管理员帐户直接访问每个 VM 。此访问可用于手动连接到每个 VM ，以手动安装应用程序并进行其他配置更改。</block>
+  <block id="3e2161b25ff5e0cec462c799d866da31" category="paragraph">此功能可在 " 工作空间 "&gt;" 服务器 "&gt;" 操作 "&gt;" 连接 " 中找到</block>
+  <block id="7206e87cd374427fb9e10cdf1670e31e" category="inline-image-macro">900,900</block>
+  <block id="2e5ca9ce8338ed7e12248d0854d5eb10" category="paragraph"><block ref="2e5ca9ce8338ed7e12248d0854d5eb10" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="19afb9d1ac9ba6fd860315f1ca7e0b69" category="inline-link-macro">单击此处</block>
+  <block id="78104d1abd0bb7ff7a60f2b2646929b4" category="paragraph">如果需要域管理员凭据，则可以使用 VdMS 特权访问管理（ PAM ）功能来生成域管理员凭据。详细信息可以是 <block ref="6da78f0b3ed97d3f07b33982cff9a787" category="inline-link-macro-rx"></block>。</block>
+  <block id="73a293bc30e0480a720259fb32dfd519" category="section-title">VDMS 自动化</block>
+  <block id="c8791f687a8eab4bfce9fb57a97220a8" category="paragraph">在 VDMs" 门户中， " 脚本化事件 " 部分提供了远程运行代码的功能。</block>
+  <block id="d5d86c8cb6f00e10e175218d58ee43f2" category="paragraph">在脚本化事件中，存储库选项卡包含 NetApp 发布的 " 全局 " 脚本。可以使用 "+" 添加脚本 " 按钮添加自定义脚本。</block>
+  <block id="b518f4246510b7b2f0d7649dfa496519" category="paragraph">在脚本化事件中，活动选项卡包含触发器，此触发器会导致脚本对一组 VM 运行。对于 VDMs" ， " 手动 " 和 " 计划 " 事件类型最好在适当的虚拟机上推送脚本。</block>
+  <block id="cc6b191e16c485e0e10047bb40326fa1" category="admonition">活动具有许多称为 " 事件类型 " 的可用触发器。对于 VDMS ， " 应用程序安装 " 和 " 应用程序卸载 " 类型不适用。这些触发器是特定于 RDS 的触发器，不应用于 VDMA ，因为 VDMA 是基于 WVD 的服务，并且遵循 RDS 的设计架构。</block>
+  <block id="9b8e7bd6e8e1746756967cb32d54e643" category="section-title">其他自动化工具</block>
+  <block id="768f9d7a0dd23b6ed00806d459f92faf" category="paragraph">可以使用第三方管理工具管理 VDMS-3 中的虚拟机。可以通过任何兼容工具应用应用程序更改和其他 VM 配置更改。</block>
+  <block id="9ea543fb4e345eb6592d75458c4cb8b9" category="summary">VDMs 的入门登录页面</block>
+  <block id="0f43cd3e37e1c436acacdca2fab71789" category="doc">成功执行 VDMS-7 的入门步骤</block>
+  <block id="628360b99cb016f82f440ba3f28f67dd" category="section-title">什么是 VDMIs ？</block>
+  <block id="46f6eded4cddfc975ecf5b02b64628dc" category="paragraph">虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMs ）是 NetApp 托管的 DaaS 解决方案，可用于外包虚拟桌面配置，部署和基础架构，让您可以专注于用户和应用程序，每位用户只需支付一个月的费用。</block>
+  <block id="9e8c3254392b0084af45f9288549cd6a" category="image-alt">登录 .gettingstarted 3b8c5</block>
+  <block id="7e25ef1a019aa248e94eee9245e5873c" category="section-title">设置 VDMS</block>
+  <block id="c675fe9704554382bdbc8e66915b32c0" category="paragraph">VDMA 实施项目包括以下内容：</block>
+  <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="inline-link-macro">前提条件</block>
+  <block id="ec43c194067748b0549f1896c5e6e878" category="list-text"><block ref="ec43c194067748b0549f1896c5e6e878" category="inline-link-macro-rx"></block></block>
+  <block id="a9c7d144b19bd8fa62601d378a40ddd8" category="list-text">客户环境审核启动电话会议</block>
+  <block id="a6d1456f9736834bbdec181dd562a1e3" category="list-text">NetApp 为您提供 WVD 基础架构和工作空间</block>
+  <block id="d267f2e895454b234815f27756e8bfa3" category="list-text">交互式实时培训课程</block>
+  <block id="8b04ec4f75f0c22c4b6d210d421a717e" category="list-text">将数据，应用程序和用户添加到自定义的 WVD 中</block>
+  <block id="f883375f8137e6f142c56d7253cc6d08" category="list-text">测试环境，用户桌面和连接</block>
+  <block id="9388501b767b546557d8a759950da26f" category="list-text">上线！</block>
+  <block id="d7fc8658f9e7754760fee0f4a1678e61" category="section-title">下一步是什么？</block>
+  <block id="55f00fa354b9aa6365e1ebf8a7b5f33b" category="paragraph">要确保部署成功，及时，请从以下步骤开始：</block>
+  <block id="501576b716eaba3643cdb8c08168f956" category="inline-link-macro">适当的 Microsoft 365 许可</block>
+  <block id="c39d5292515125e905d03aec97857354" category="list-text">获取 <block ref="78b612584e382737e76ece5c25add306" category="inline-link-macro-rx"></block> 适用于您的用户</block>
+  <block id="8d99ef921e0276d963c6fb7cfa9590d4" category="list-text">创建 VDMS-A 用户列表</block>
+  <block id="9364c02e0d2095be3c95438f4e4fd602" category="list-text">创建应用程序，介质，许可证和供应商信息列表—记下可能需要特殊注意事项或供应商协助的任何数据库或旧版应用程序</block>
+  <block id="136212e967a2e7310317674555cf610d" category="list-text">确定需要传输的数据</block>
+  <block id="7aa38ffde78f8eb2c2324c370d860825" category="inline-link-macro">其他前提条件</block>
+  <block id="39c5623c1f9ec8914849d6cc41187f25" category="list-text">如果使用现有 Active Directory 实例进行部署，请查看这些内容 <block ref="cf83f1297856ffc9b6be310d7cdeab76" category="inline-link-macro-rx"></block></block>
+  <block id="2997e6a5bf6be5d5c8419a3213812536" category="summary">在 VDMs 中添加用户访问权限</block>
+  <block id="d642faecdf160dfb8644fb3fa136bccb" category="doc">正在添加用户访问权限</block>
+  <block id="471f93d68756f527284bc51eaf905dd1" category="section-title">创建新用户</block>
+  <block id="f4219fd258da70da218e29b7aa9ce98f" category="list-title">新的 Active Directory 部署（为 VDMA 创建了一个新的 Active Directory 域）</block>
+  <block id="02c095d06a6d1cdc05103497e307bb57" category="list-text">在 VDS 中创建用户</block>
+  <block id="276e75d878376ba6611b9767ab595d74" category="list-text">导航到工作空间，选择 " 用户和组 " 选项卡，单击 " 添加 " ，然后选择 " 添加用户 "<block ref="01a7e13851148707d52a68eb54f00a1b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="87220c67c72f0d298051345c32d4deac" category="list-text">填写用户信息，然后单击 " 添加用户 "<block ref="f9a3413134fff75f5a462338940fce3a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fab5c136050045c86c6dda86d966205f" category="list-text">使用以下方法之一将其他用户通知 NetApp</block>
+  <block id="3dcb90c689d5e13266b1241d68b0cbad" category="list-text">电子邮件支持： VDSsupport@netapp.com</block>
+  <block id="88cc9e245d04dc16592a51f8acaca39e" category="list-text">电话支持： 844.645.6789</block>
+  <block id="761897184911914403fb24eff6e9fa73" category="inline-link-macro">VDM 支持门户</block>
+  <block id="8c0bcd4812f78591782afec72a6d71cd" category="list-text"><block ref="8c0bcd4812f78591782afec72a6d71cd" category="inline-link-macro-rx"></block></block>
+  <block id="fdc2b135d9efecb3e1f2b4fca11dd892" category="list-text">将用户分配到其主机池</block>
+  <block id="ad0fbbe0d18dd45378f6ca0aa2500bb1" category="list-text">在用户和组选项卡上，单击链接到主机池的用户组。例如，组 "Kift WVD Shared" 会链接到 VDMs" 中的 WVD 共享主机池。添加到 "Kift WVD Shared" 的所有用户都将获得对 "WVD Shared" 主机池中会话主机的访问权限。<block ref="52fe872693fa4a302fecc7ac8d9409f8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0d81223cb2329228b3639c112f152f34" category="list-text">单击用户框右上角的编辑图标，然后单击 " 添加用户 "<block ref="f779d10d4b5a2a12e1bbcbfb50a562cb" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b5fa21f0eb2d8b7fe1bfd9c95e541389" category="list-text">选中要添加的用户旁边的框，然后单击 " 继续 "<block ref="fe8ce930c30018c2fed04664cd787039" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">此处</block>
+  <block id="2502824cec4d71acc93081cd6e05d3f4" category="list-text">有关更多详细说明，请参见 <block ref="c8dc0d78acf8a52218aa489a7ef1ee9d" category="inline-link-macro-rx"></block></block>
+  <block id="cb97f0bec1842e8c8a2d34fe19793d1b" category="list-title">现有 Active Directory 部署（ VDMSis connecting to an existing Active Directory ）</block>
+  <block id="075f4277f2f2fd3d1dfa5fe127b63805" category="list-text">在 Active Directory 中按正常方式创建用户</block>
+  <block id="ea9a80a8ebede4b24a7ffcb37da35fcb" category="list-text">将用户添加到部署中列出的 Active Directory 组<block ref="3d1e494df7d4c39ad677f1ad91e61fc8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="396f85e9c2391a975a7258e1a32ab806" category="list-text">启用 cloudworkspace</block>
+  <block id="d3a38a38525619a60766615947e2efea" category="summary">VDM 的服务角色和职责</block>
+  <block id="005602cbcfd03b7cf963c6bb4a0eae8f" category="doc">VDM 服务角色和职责</block>
+  <block id="d7a0fdc3b195f0c6e1ed2198153b80bb" category="summary">VDS 管理员权限摘要</block>
+  <block id="5dc26064e87f654304131fcfd3daa69a" category="doc">VDS 管理员权限</block>
+  <block id="5b6882e7ef1f887ec6419b3daebc8735" category="section-title">管理员权限概述</block>
+  <block id="7e05b9cae4e3d540574176f7153fbf96" category="paragraph">VDM 管理员对 VDS 管理门户的访问受限。由于 VDMs 是一个共同管理的解决方案，因此某些权限集不会为 VDMs 管理员启用。这些操作仅供 NetApp 支持团队执行。如果由于权限限制而无法执行所需的操作，请联系支持部门以获得帮助。</block>
+  <block id="d05e9f08eecf734428d35a1fcedffb90" category="section-title">帐户类型设置</block>
+  <block id="7cd4109429c8312a89ac1f49934f3ccf" category="paragraph">在 VDMS-admin 帐户中，以下设置为默认设置。</block>
+  <block id="a1fa27779242b4902f7ae3bdd5c6d508" category="cell">Type</block>
+  <block id="6b66a61fa66288a9a7ad6474d2e686ec" category="cell">默认值</block>
+  <block id="f4c6f851b00d5518bf888815de279aba" category="cell">注释：</block>
+  <block id="d5e3e97669ced4708d68d647e525ce9e" category="cell">技术帐户</block>
+  <block id="f8320b26d30ab433c5a54546d21f414c" category="cell">false</block>
+  <block id="cf1b576e701e43c9c13c3f0208d89387" category="cell">可以根据请求向 NetApp 支持部门更改。启用后，在通过 VDS 门户连接到任何 VM 时，系统会提示管理员提供凭据。禁用后，在通过 VDS 门户连接到任何租户 VM 时，管理员将自动通过自动生成的本地管理员帐户进行身份验证。连接到任何平台服务器 VM 时，系统仍会提示管理员输入凭据。</block>
+  <block id="49cc3c60e5e92840d647161b1a0d5674" category="inline-link-macro">PAM 审批者</block>
+  <block id="ed7ed8349364aaa897c69891d2a45419" category="cell"><block ref="ed7ed8349364aaa897c69891d2a45419" category="inline-link-macro-rx"></block></block>
+  <block id="f827cf462f62848df37c5e1e94a4da74" category="cell">true</block>
+  <block id="8ed2ba64fcd0132ae97f3a42e8532166" category="cell">可以根据请求向 NetApp 支持部门更改。所有客户必须至少启用一个管理员帐户作为 PAM 审批者。</block>
+  <block id="c69eca844828e06e0640b3d2a0a3c143" category="cell">用户支持</block>
+  <block id="cc03a2c33646dc588261f08a09cc9095" category="cell">此功能不适用于 VDMs.</block>
+  <block id="dc43bfde4556ec8545b0aa64ed23837b" category="cell">卷影用户</block>
+  <block id="87c9d6a3251c3a06635ba622ff81145a" category="cell">可以根据请求向 NetApp 支持部门更改。启用后，管理员可以连接到最终用户的会话，并查看他们在提供最终用户支持方面看到的内容。</block>
+  <block id="26ab6a271aedb1fff35392d6cf869e3b" category="cell">已启用 MFA</block>
+  <block id="84e6972e06fa7b02bb1b7d57bc33d18c" category="cell">要求管理员使用内置的 MFA 来保护对 VMS 管理门户的访问。支持 SMS 和 / 或电子邮件方法。</block>
+  <block id="7fcdb550ca4f1e48f367deba0c3ff630" category="section-title">管理员帐户权限</block>
+  <block id="72699bb96a95dff4248c8236e66e1193" category="paragraph">在 VDMS-admin 帐户中，以下权限为默认权限。</block>
+  <block id="e55f75a29310d7b60f7ac1d390c8ae42" category="cell">模块</block>
+  <block id="4351cfebe4b61d8aa5efa1d020710005" category="cell">查看</block>
+  <block id="7dce122004969d56ae2e0245cb754d35" category="cell">编辑</block>
+  <block id="f2a6c498fb90ee345d997f888fce3b18" category="cell">删除</block>
+  <block id="ec211f7c20af43e742bf2570c3cb84f9" category="cell">添加</block>
+  <block id="e3afed0047b08059d0fada10f400c1e5" category="cell">管理员</block>
+  <block id="521c36a31c2762741cf0f8890cbe05e3" category="cell">开启</block>
+  <block id="d15305d7a4e34e02489c74a5ef542f36" category="cell">关闭</block>
+  <block id="55c32b406a415642c4be28bb7f15e18f" category="cell">添加管理员帐户和 / 或更改管理员权限由 NetApp 支持部门处理。</block>
+  <block id="55897b2ee79066418cbb79cd09d7de56" category="cell">应用程序服务</block>
+  <block id="4cfff72719609c16d511a3037d4a6781" category="cell">应用程序服务功能集不是 VMS 中支持的功能。</block>
+  <block id="1ddf333c6654f7f89c739dddfb4cc429" category="cell">应用程序</block>
+  <block id="9d1fc783a2a3cae6f5113ecc305826ef" category="inline-link-macro">更新和部署映像</block>
+  <block id="fa54b0f3b62ce93c357e436e8a9a9a57" category="cell">VDS 中的应用程序功能集是特定于 RDS 的。VDM 是一种基于 WVD 的服务，不使用此功能来管理应用程序。请参见 <block ref="a532c9f084f46c6a855d757a074bb9f3" category="inline-link-macro-rx"></block> 有关为 VDMS-4 提供应用程序的详细信息，请参见。</block>
+  <block id="b06c94565d768dd75535120f2f8482a7" category="cell">审核</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="cell"></block>
+  <block id="0f558243fbf45f1cd840fff01957f57b" category="cell">客户端</block>
+  <block id="d4130240f822c63ce2fe56c9525a16a0" category="cell">客户端创建 / 删除由 NetApp 支持部门处理。</block>
+  <block id="3081015fddfcd25b52903a5dc112ca7c" category="cell">部署</block>
+  <block id="04fd763440a9d9b21f290ecd48769379" category="cell">部署创建 / 删除由 NetApp 支持部门处理。</block>
+  <block id="483a9d9cfd5caf508318528d7d33ee55" category="cell">防火墙规则</block>
+  <block id="60c7502b5c40479908aed919a94c1786" category="cell">文件夹</block>
+  <block id="a37ede293936e29279ed543129451ec3" category="cell">组</block>
+  <block id="02ebd0b80e8dfe739d455ae3325ce3e3" category="cell">删除用户组由 NetApp 支持部门处理。某些用户组为必填项</block>
+  <block id="fd6df34ee4e7642c02ced6012028f6b8" category="cell">合作伙伴</block>
+  <block id="84b1175bc23ed9e1d51a477c4e6ea2af" category="cell">配对功能集不是 VDMA 中支持的功能。查看显示租户列表所需的权限。</block>
+  <block id="5760353c204c96a4ad1c2a433433f44c" category="cell">配置模板</block>
+  <block id="ee8f950230eb6736fe74838884276d10" category="cell">映像创建 / 删除由 NetApp 支持部门处理。</block>
+  <block id="c91c7b93c28cd18741b71f727ee81ee3" category="cell">报告</block>
+  <block id="ddcf50c29294d4414f3f7c1bbc892cb5" category="cell">Resources</block>
+  <block id="8fde96b6b53ed8ff01b171b2558707ac" category="cell">资源设置由 NetApp 支持部门处理。</block>
+  <block id="78054cd2f54e3e84c28c8b0c14457ef6" category="cell">脚本化事件</block>
+  <block id="ac659513b2353187192e88c5d1988228" category="cell">服务器</block>
+  <block id="025d4c0374ab8ff0ebbdfed77eadf7b8" category="cell">服务器创建 / 删除设置由 NetApp 支持部门处理。</block>
+  <block id="aa1315a19149418839bbbc0f0063228b" category="cell">服务板</block>
+  <block id="f4f70727dc34561dfde1a3c529b6205c" category="cell">设置</block>
+  <block id="f9aae5fda8d810a29f12d1e61b4ab25f" category="cell">用户</block>
+  <block id="d5e92609cf510f5f97ac326e907a0540" category="cell">工作空间</block>
+  <block id="8c541e8ad3aab98d9c2dbac2472ab7e2" category="cell">工作空间创建 / 删除由 NetApp 支持部门处理。</block>
+  <block id="6f99cee9e9c33b41b074c633b3012168" category="summary">VDM 前提条件</block>
+  <block id="7101d756d033177353d9f5c07dc1cca0" category="doc">虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDM） 的前提条件</block>
+  <block id="4ab76886debf49d95b2a4fef582d15c7" category="section-title">M365 许可</block>
+  <block id="b020d0c9b32e382959cf0dea2bead748" category="paragraph">VDM 采用 Microsoft Windows 虚拟桌面（ Virtual Desktop ， WVD ）技术构建。WVD 前提条件要求为最终用户分配特定的 Microsoft 365 （ M365 ）许可。此许可不包含在 VDMS-subscription 中， NetApp 不销售或以其他方式提供此许可证。</block>
+  <block id="cebd22a00d5013c15eed793e240502a6" category="paragraph">客户公司，合作伙伴公司和 / 或其 M365 供应商负责确保符合 M365/WVD 许可要求。</block>
+  <block id="b4235b06a6f6d504c028c18cce86b2ae" category="paragraph">有多种 M365 计划支持 VDMD 的 WVD 许可，详细信息可以是 <block ref="a742b0ae6bcc16874b13b2550124fc06" category="inline-link-macro-rx"></block>。</block>
+  <block id="e2c95d84734b00e5ef2ef41173187dfd" category="section-title">M365/Azure AD 租户</block>
+  <block id="978a5d70cc4724762885eae4edefb265" category="paragraph">客户必须具有现有 Azure AD 租户。Microsoft 365 基于相同的 Azure AD 租户结构，因此满足 M365 许可要求（如上所述）也可以满足此要求。</block>
+  <block id="e60603a8c091ad4ecf4f13ef038c6993" category="section-title">CSP 经销商关系</block>
+  <block id="97c44aa79914d250c369d31952754f92" category="paragraph">NetApp 通过与 Microsoft 的 CSP 关系将 VDMs 部署到专用 Azure 订阅中。要部署此订阅， NetApp 需要与客户的 Azure AD 租户建立经销商关系。客户 Azure AD 租户的全球管理员可以在此处接受此关系：</block>
+  <block id="76c466b535a024bf62441e55d148bff3" category="paragraph"><block ref="fa3fd739777b2eeb32cbdd79384ee355" category="inline-link-rx"></block></block>
+  <block id="28d1b9c40143d939044f58ee443457ae" category="paragraph">多合作伙伴功能不会：</block>
+  <block id="360ea3e16d3eacc3f4c40629ffacbe0f" category="list-text">更改客户的任何现有订阅</block>
+  <block id="8049eda9cbcf42194ddbf8e1247fef3a" category="list-text">过渡客户的现有订阅或帐户所有权</block>
+  <block id="31aad5340a094333d0802dc580273698" category="list-text">更改任何现有订阅的条款或客户的义务</block>
+  <block id="1e95b46571474c3be681a025af16355e" category="list-text">更改订阅的记录配对项</block>
+  <block id="01f9d9cf2c00e8e734e6317025a5a247" category="list-text">有关此项的更多详细信息：<block ref="6684da7473eb39e0e8cae311c4c6d92e" category="inline-link-rx"></block></block>
+  <block id="0fdcf23d7c1c245aaa0e4622d9b7c2cb" category="section-title">委派的管理员权限</block>
+  <block id="b332ccf67aea6d555c7d8ac7a19d5c27" category="paragraph">邀请链接（如上所示）包括对委派管理员权限的请求。接受后，将在客户的 Azure AD 租户中授予 NetApp 全球管理员和帮助台管理员角色。</block>
+  <block id="cb59dd4492601ed66800cb3e5c574545" category="section-title">虚拟网络范围</block>
+  <block id="457656b9ef14bd283c9ef34d425f14b6" category="paragraph">VDM 将部署在 Azure 中的虚拟网络上。此网络使用的 /20 IP 范围不能与其环境中的其他网络重叠。</block>
+  <block id="2852f2aa3284e9a7c6058e6370337a56" category="paragraph">在任何在 VDMs 虚拟网络和任何其他客户网络之间添加网络连接的情况下，与其他网络 IP 范围重叠将中断 VDMs 。因此，将完全未使用的 /20 范围专用于 VDMs 至关重要。</block>
+  <block id="3e501301e848b677583840429ef15a66" category="paragraph">/20 网络范围需要位于以下 IP 范围之一：</block>
+  <block id="9a209730b7f51b3e4565ad790589fc43" category="list-text">10.0.0.0 — 10.255.255.255</block>
+  <block id="14dd7fcccb4b74ca672c297d1cb6d665" category="list-text">172.16.0.0 — 172.31.255.255</block>
+  <block id="3829ec5f29f77c5b461342b2ed779339" category="list-text">192.168.0.0 — 192.168.255.255</block>
+  <block id="5cbad71b2e52d27af79f2dcc24f0c89f" category="section-title">部署 VMS 工作表</block>
+  <block id="40ecdaa6099a435c9140cf2050e6e8ab" category="paragraph">客户 / 合作伙伴需要在以下位置完成 Deploy VDMs 工作表：<block ref="407da3f6a76beb163cf0094e957ae19d" category="inline-link-rx"></block></block>
+  <block id="131e28f3148ad4a6d5f7dbcc7defb415" category="section-title">现有 AD 集成</block>
+  <block id="9a2d2d00cc1c8fbdd604e7514b5e31f6" category="paragraph">要将 VMS 与现有 Active Directory 域控制器（ AD DC ）集成，还需要满足以下几个前提条件：</block>
+  <block id="112b26ab610b8d0250bc550630221838" category="section-title">本地域管理员凭据</block>
+  <block id="e1a9443c6e1bae566f0e44fe64344da0" category="paragraph">要建立集成，需要在现有域上使用具有 domainjoin 权限的本地域管理员帐户。</block>
+  <block id="e1fafd2510cd146e482a585fc2356d70" category="section-title">Azure AD Connect</block>
+  <block id="67b732dc42aaffa9056d34cc477c863c" category="inline-link-macro">实用程序</block>
+  <block id="a25c024625e73e1fcccf495c1eda46e5" category="paragraph">WVD 要求使用 AD Connect 将 Azure AD 与 AD DC 同步。如果尚未设置，则会执行此操作 <block ref="fd37678176db647d7dc18b476a126816" category="inline-link-macro-rx"></block> 需要在 AD DC 上安装和配置。</block>
+  <block id="5017caf329e32c80bdc1556087e04c9e" category="paragraph">//== 网络贡献者 vNet 对等的角色 /== 本地网关设备管理员权限要设置 VPN /== DNS 区域（需要更多技术信息） /== 无多域 forrest ，用户必须位于要部署到的域中</block>
+  <block id="98bc530693a52fafe469f30614e8f883" category="summary">欢迎使用虚拟桌面托管服务文档门户。</block>
+  <block id="9f817877212aa8b2757f521dbf32cd41" category="doc">虚拟桌面托管服务文档</block>
+  <block id="3b878279a04dc47d60932cb294d96259" category="section-title">概述</block>
+  <block id="2637b7de7d33d19378c198b8be6838bf" category="paragraph">NetApp 的虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMA ）可解决在公有云中部署和管理虚拟桌面的复杂性，该服务作为受管 VDI 即服务平台提供。</block>
+  <block id="ad03304ebb58420571f6373a6c9d8ec7" category="section-title">获取支持</block>
+  <block id="0b7ecd3f16fdb38fd9df7824bc8d7b1f" category="paragraph">正常支持工作时间：星期一到星期五，中部时间上午 7 ： 00 到晚上 7 ： 00 。</block>
+  <block id="d13c2f018ea5180520061bfbbc26db45" category="list-text">非工作时间（电话）支持仅通过电话提供。</block>
+  <block id="5415e4af755fea4714f1671504efcd13" category="section-title">Windows 虚拟桌面（ WVD ）客户端</block>
+  <block id="dfdf288956a9f63a5bae66aff6f73337" category="inline-link-macro">适用于 Windows 客户端的 Microsoft WVD</block>
+  <block id="3c6a3d5491e156e43159551aea166eac" category="list-text"><block ref="3c6a3d5491e156e43159551aea166eac" category="inline-link-macro-rx"></block></block>
+  <block id="4b43e9013fc9eb09c085b7c544ded089" category="inline-link-macro">Microsoft WVD Web 客户端</block>
+  <block id="7fd34e8df1747b4bff9245d9132b966b" category="list-text"><block ref="7fd34e8df1747b4bff9245d9132b966b" category="inline-link-macro-rx"></block></block>
+  <block id="b4611a2d3d5a5e3739a1c6e591c54c45" category="inline-link-macro">适用于 Android 客户端的 Microsoft WVD</block>
+  <block id="e171ab639221a7dd239974c2b86d2fa5" category="list-text"><block ref="e171ab639221a7dd239974c2b86d2fa5" category="inline-link-macro-rx"></block></block>
+  <block id="88e5ff73d6f89b2579347681a57888a5" category="inline-link-macro">适用于 macOS 客户端的 Microsoft WVD</block>
+  <block id="ff5a31bd5c49822af23db663021be551" category="list-text"><block ref="ff5a31bd5c49822af23db663021be551" category="inline-link-macro-rx"></block></block>
+  <block id="ab820e6f4b3da259f734f7719dc03beb" category="inline-link-macro">适用于 iOS 客户端的 Microsoft WVD</block>
+  <block id="c0f265d8b364ec0302ca37319c93f323" category="list-text"><block ref="c0f265d8b364ec0302ca37319c93f323" category="inline-link-macro-rx"></block></block>
+  <block id="f89a22674e8a92e50b2f8aad878c2dc1" category="section-title">服务组件</block>
+  <block id="221183f642ade47cc467abe7b9812d30" category="paragraph">VDM 是一种联合管理的服务产品，集 NetApp 和 Microsoft 的多种技术于一体，并在 EUC 市场应用 20 多年的最佳实践。下面列出了一个选定组件列表。由于客户需求不同，并非所有组件都在所有部署中使用。</block>
+  <block id="cfaa375bf6c7f9fcc1bc04d4f30c9154" category="section-title">NetApp</block>
+  <block id="72f6c2ed3549f0d5f63c9fac2754abf7" category="inline-link-macro">NetApp SaaS Backup</block>
+  <block id="1ad7c199b2daa5bebcbcd0a0354d629e" category="list-text"><block ref="1ad7c199b2daa5bebcbcd0a0354d629e" category="inline-link-macro-rx"></block></block>
+  <block id="b47230a05c1b0d89e678d8679312f734" category="list-text">VDMAS 中包含 NetApp SaaS 备份服务的许可。</block>
+  <block id="8f53b5241aa3284f9058318dcbc2504d" category="inline-link-macro">Azure NetApp 文件 (ANF)</block>
+  <block id="807c90ee9f6f726952c2838ef0c351e1" category="list-text"><block ref="807c90ee9f6f726952c2838ef0c351e1" category="inline-link-macro-rx"></block></block>
+  <block id="e7c7def4c520da02d9d2de3af21bfe23" category="list-text">用户数超过 49 的部署的数据存储层基于 ANF 。</block>
+  <block id="2b777d6a2e70fbbf8bc7129f2344fbdc" category="list-text">对于用户数小于 250 的部署，将使用标准性能层。</block>
+  <block id="f01388bdfcc7b5decd2e457dd9643b4c" category="list-text">对于用户数超过 249 个的部署，将使用高级性能层。</block>
+  <block id="43eacebb5257cc3f7ffeafcc431ace05" category="inline-link-macro">NetApp Cloud Backup</block>
+  <block id="707d9a52c2b2c0f6bad5780695b059cb" category="list-text"><block ref="707d9a52c2b2c0f6bad5780695b059cb" category="inline-link-macro-rx"></block></block>
+  <block id="e6d64656856b343cebd019acbb40b76a" category="list-text">NetApp Cloud Backup 用于备份 ANF 存储卷。</block>
+  <block id="dc188738e6cc2e9f8314e1b95f18ebfd" category="inline-link-macro">NetApp Cloud Sync</block>
+  <block id="1fa9af60cd9be0da37c7968ddb64376a" category="list-text"><block ref="1fa9af60cd9be0da37c7968ddb64376a" category="inline-link-macro-rx"></block></block>
+  <block id="9f518c7170c02cabfafe2faf89a81c4d" category="list-text">当 ANF 是数据存储层技术时，可以使用 NetApp Cloud Sync 将数据迁移到 VMS 中。</block>
+  <block id="a1722ee1a41c4364dfc3dcf1cca5c81b" category="inline-link-macro">NetApp Cloud Insights</block>
+  <block id="4ee4516d2b6023b325419caa07f812a6" category="list-text"><block ref="4ee4516d2b6023b325419caa07f812a6" category="inline-link-macro-rx"></block></block>
+  <block id="91988dd1ea5b991fb85629c6b00d4540" category="list-text">我们的支持和服务团队使用 NetApp Cloud Insights 进行性能监控。</block>
+  <block id="bf32c55b9c9938dc916aec0ea1c0284c" category="inline-link-macro">NetApp VMS 支持</block>
+  <block id="eeb24dc4a000ededfac7873179c95601" category="list-text"><block ref="eeb24dc4a000ededfac7873179c95601" category="inline-link-macro-rx"></block></block>
+  <block id="7719afad377344d8e2107f50bdf4e0f6" category="list-text">VDM 包括由 NetApp 专业支持团队提供的全天候意外事件支持和入职服务</block>
+  <block id="140864078aeca1c7c35b4beb33c53c34" category="section-title">Microsoft</block>
+  <block id="db518c790e08ef4681e765d4a8cb77bb" category="inline-link-macro">Azure 文件（ AF ）</block>
+  <block id="5d4ee9d5685d5641ce2c8c2ba4dabe0c" category="list-text"><block ref="5d4ee9d5685d5641ce2c8c2ba4dabe0c" category="inline-link-macro-rx"></block></block>
+  <block id="f4ed5596725574cbc7927eae7b6c6adb" category="list-text">用户数少于 50 的部署所使用的数据存储层基于 AF 技术。我们会在 GPv2 存储帐户中配置 " 事务优化 " 层。</block>
+  <block id="64cde2a8b64e175bcadca975c13f467d" category="list-text">对于用户数超过 49 的部署，使用 ANF 。</block>
+  <block id="2d5dc75ae0469095c0637f057c402dd9" category="inline-link-macro">Azure Cloud Backup</block>
+  <block id="ec91135da0e64bcbb6a4909a510f9421" category="list-text"><block ref="ec91135da0e64bcbb6a4909a510f9421" category="inline-link-macro-rx"></block></block>
+  <block id="ba9e9d4cfd02480f0d197ed3c3df3fb1" category="list-text">Azure Cloud Backup 用于备份 AF 存储卷和虚拟机。</block>
+  <block id="bebb460745cf70f0fb01567618da6ace" category="inline-link-macro">Azure 文件同步</block>
+  <block id="1d27d66e4d1610ec85aa556b17b7a21c" category="list-text"><block ref="1d27d66e4d1610ec85aa556b17b7a21c" category="inline-link-macro-rx"></block></block>
+  <block id="c06b0209ebb258572c8ca2cb4e428d7a" category="list-text">当 AF 是数据存储层技术时，可以使用 Azure File Sync 将数据迁移到 VDMS-OMS 中。</block>
+  <block id="5108ba6c5030a5032f1009bc8c0607c2" category="inline-link-macro">Azure Defender"</block>
+  <block id="2efda18dbfc1ccfbe33cd7fafa81c028" category="list-text"><block ref="2efda18dbfc1ccfbe33cd7fafa81c028" category="inline-link-macro-rx"></block></block>
+  <block id="6a9959db688a881cbcadb8dd291008c4" category="list-text">VDM 激活（并包括许可） Azure 路由， Azure 路由是环境中所有虚拟机上的一项高级安全服务。管理和管理由客户和 / 或其 IT 服务提供商通过 Azure 安全中心执行。管理 Azure 安全中心不是 VDMOS 中包含的服务。</block>
+  <block id="ed826a0ea4b8d674a29a54acb3442471" category="inline-link-macro">Azure 虚拟机</block>
+  <block id="e76162ecb5c068d6b130db8ee5211596" category="list-text"><block ref="e76162ecb5c068d6b130db8ee5211596" category="inline-link-macro-rx"></block></block>
+  <block id="a88111f39da8a7274444b588481fee26" category="list-text">VDM 在很大程度上依赖于基于 Windows 的 Azure 虚拟机来托管用户会话和客户应用程序。</block>
+  <block id="01296bd76cd8185c0501d04cce7a167b" category="inline-link-macro">Azure 虚拟网络对等</block>
+  <block id="3979c7c151502e46a9cc9e3c8e0c6fcc" category="list-text"><block ref="3979c7c151502e46a9cc9e3c8e0c6fcc" category="inline-link-macro-rx"></block></block>
+  <block id="9796805885a1800afe1b14adffe2cb28" category="list-text">VDM 可以利用 Azure 虚拟网络对等功能与客户的现有 Active Directory 域控制器（ AD DC ）集成。</block>
+  <block id="1326428c52b039fd64ab59330a06ed7a" category="inline-link-macro">Azure VPN</block>
+  <block id="5f71288630df0d16ede6551b3df106ae" category="list-text"><block ref="5f71288630df0d16ede6551b3df106ae" category="inline-link-macro-rx"></block></block>
+  <block id="7d609d9814d7e154cd65f8ecdcdbe7ae" category="list-text">VDM 可以利用 Azure 站点到站点 VPN 与客户的现有 Active Directory 域控制器（ AD DC ）集成。</block>
+  <block id="f7896a449e94c533aa09253e7ec6a8e1" category="inline-link-macro">Windows 虚拟桌面（ WVD ）</block>
+  <block id="1ee7e70fb1311d3977554f6ea305af4d" category="list-text"><block ref="1ee7e70fb1311d3977554f6ea305af4d" category="inline-link-macro-rx"></block></block>
+  <block id="907dd555fc3c0afb63583fc4457f11ca" category="list-text">VDM 利用原生 WVD 功能支持用户会话代理，身份验证， Windows 许可等。</block>
+  <block id="47d965a1630901daa52084062865e9c6" category="list-text"><block ref="47d965a1630901daa52084062865e9c6" category="inline-link-macro-rx"></block></block>
+  <block id="d7e7636ec23a129a1ecaa66e3d557b80" category="list-text">WVD 要求本地域（ AD DC ）和 Azure AD 通过 Azure AD Connect 应用程序同步。</block>
+  <block id="69e203f09b55e828d2192c6b402d4711" category="inline-link-macro">Microsoft 365 （ M365 ）</block>
+  <block id="85a1f43f633c5b533e51cfb59f99dda6" category="list-text"><block ref="85a1f43f633c5b533e51cfb59f99dda6" category="inline-link-macro-rx"></block></block>
+  <block id="6802bf293c3a3d6a57152760479f4d42" category="list-text">会话主机的 WVD 用户会话和 Windows 10 Enterprise 可通过特定的 M365 许可证类型授予用户许可。将适当的 M365 许可分配给所有 VDMA 用户是 WVD 和 VDMA 的要求。此许可不包括在 VDMs.客户和 / 或其 IT 服务提供商有责任管理 M365 许可。</block>
+  <block id="daf37e22be5944b91ad3e9f10bae946a" category="summary">在 VDMs. 中添加和删除管理员</block>
+  <block id="cd1072c0f5d3db1b2c15e15c34c852fd" category="section-title">在 VDMs. 中添加管理员</block>
+  <block id="a9cdcafa8b61ec6579c66a2df489614b" category="list-text">此过程由 NetApp 处理</block>
+  <block id="91e40577c319b6a01b52603f473309b3" category="list-text">使用以下方法之一联系 NetApp VDMs 支持部门：</block>
+  <block id="34d259745d3da613bcc0b3adfbc639ed" category="list-text">请为新管理员帐户提供以下信息：</block>
+  <block id="fe9be8f63d5ba2087cd13852d40f6718" category="list-text">合作伙伴代码</block>
+  <block id="21aef67e8d12503aff027385d0a7867f" category="list-text">名字和姓氏</block>
+  <block id="b357b524e740bc85b9790a0712d84a30" category="list-text">电子邮件地址</block>
+  <block id="1ba35231b4d109955cd66ed3863f0aa1" category="inline-link-macro">管理员权限</block>
+  <block id="6fbc6323a3bfb526f94558882d009cac" category="list-text">权限是否与中概述的默认设置不同 <block ref="2ede773ee6fbfa51f614196fcbee7730" category="inline-link-macro-rx"></block></block>
+  <block id="6dcbc4b0c3684e270a0c6cb85ab64330" category="section-title">在 VDMs. 中删除管理员</block>
+  <block id="b61edd6ca3ed9ef1fd846fbbb5a7743e" category="list-text">此过程由合作伙伴处理</block>
+  <block id="1bc0f19aeec5f7092afb1c27bae98524" category="list-text">导航到 "Admins" 选项卡</block>
+  <block id="da84b2cbcbf8cd7d0e828499fc7a32db" category="list-text">单击要删除的管理员右侧的 "Actions" 圆点</block>
+  <block id="eb497ca12d0310af894bdca08a29c76a" category="list-text">单击 " 删除 "</block>
+  <block id="7f4aaf00d8a4414e162496ba9892f69a" category="list-text">此时将显示一个确认框；单击 " 是，我确定 "<block ref="742faf550871500875b02d7ef54940f0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7aa1916e49d82631e70edd9fdc8569fc" category="list-text">如果您有任何疑问，请使用以下方法之一联系 NetApp VDMs 支持：</block>
+  <block id="0bb5e291a8346bfbe1abcdb9b33e91ca" category="summary">在 VDMs. 中更新和部署 VM 映像</block>
+  <block id="9236529baf2a458da85cb99992dd40f4" category="doc">更新和部署 VM 映像</block>
+  <block id="c2583bd79f35d1fdfaf4832fc594e07a" category="paragraph">本文介绍 VM 映像管理。直接在 SHVM 上安装应用程序将在中进行介绍 <block ref="33cb6a0164515f2f0ab6dc783a955d60" category="inline-link-macro-rx"></block>。</block>
+  <block id="ba18948a82e24b426e5a72f2d0902865" category="section-title">正在更新 VM 映像</block>
+  <block id="ceaae77ce3a671c10b5ba688205bc95b" category="paragraph">向 SHVM 添加（或删除）应用程序的建议方法是编辑分配给主机池的 VM 映像。自定义并验证 VM 映像后， VDMs 支持团队可以根据请求将其部署到主机池中的所有 SHVM 。</block>
+  <block id="e36aeacb8867d36675477317c9171a44" category="list-title">如何编辑 VM 映像</block>
+  <block id="6aba11bcdf4b1e91d230f5912ec2d899" category="list-text">在 VDS 门户的部署中导航 " 配置集合 "</block>
+  <block id="382d0f32201b4ccc098f087a2436cf06" category="list-text">单击与要更新的主机池关联的配置收集。</block>
+  <block id="6c0ff8a5567842dfa1ee64d8b354e911" category="paragraph"><block ref="6c0ff8a5567842dfa1ee64d8b354e911" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d3df87e9f2d03852531d7f34a5baf341" category="list-text">记下 "Servers" 部分中的 "VM Template" 名称。</block>
+  <block id="6e61c51afb9d0a469e3c9ea737aca8b1" category="paragraph"><block ref="6e61c51afb9d0a469e3c9ea737aca8b1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e012c6c08105f159bae083124447c7ae" category="paragraph"><block ref="e012c6c08105f159bae083124447c7ae" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b566a76fb68de3babffe22d88e1e7c3e" category="list-text">编辑服务器模板，确保源模板为步骤 2.a 中记下的 VM 模板以上。单击 " 继续 "</block>
+  <block id="fe619623ee4bf5904f210a60cf63df7a" category="paragraph"><block ref="fe619623ee4bf5904f210a60cf63df7a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="76f82382f0749e5a50b762a918028ea3" category="admonition">* 请勿编辑这些设置： * 1.类型 = VDI 2 。共享驱动器 = 空 3.最小缓存 = 0 4 。数据驱动器 = 未选中 5.存储类型 = Standard_LRS</block>
+  <block id="6de3ef94ae2319b669043569d30ef7bc" category="list-text">现在， VDMs 自动化将在 Azure 中构建一个临时虚拟机，计算机名称为 _CWT#_ 。构建此虚拟机可能需要 25 分钟。此过程完成后，状态将更改为 "Pending"</block>
+  <block id="fe057f36a544a8ec1a7f829f7f7a9fb1" category="list-text">请注意，此虚拟机将一直运行，直到自定义过程完成，因此，在一两天内构建，自定义和验证此虚拟机非常重要。</block>
+  <block id="245b93e1390f56d51ea505b78bbef646" category="list-text">临时虚拟机准备就绪后，您可以通过编辑配置收集并单击服务器上的 " 连接 " 来登录到该虚拟机。</block>
+  <block id="d1d3afc9697d853892811e7c1dad4def" category="list-text">当系统提示输入凭据时，具有 "PAM 审批者 " 权限的任何 VDMS 管理员都可以生成域管理员凭据。</block>
+  <block id="30541ed22d69997e599dc3adf418fc15" category="list-title">如何部署更新后的 VM 映像</block>
+  <block id="c0b57b5a2501ec6d0ef82f17e00d086c" category="list-text">验证虚拟机映像后，请联系 VDMS-Support 团队以计划映像刷新。</block>
+  <block id="2208de05b3461ad36b9d2e8377cb3322" category="list-text">该团队将根据新映像构建新的会话主机。</block>
+  <block id="65972c6ef9da7713441d049ae0128e3c" category="list-text">如果需要，请在将新用户重定向到新主机之前，协调时间来测试新主机。</block>
+  <block id="99061db7a314c44533fe9c7c7fb25761" category="list-text">准备好后，支持团队会将所有新用户会话重定向到新主机。如果没有连接任何用户，我们将关闭旧主机。对于热故障转移，这些旧 VM 将保持已取消分配状态，但这些 VM 将在 7 天后自动清除。</block>
+  <block id="38e3e611d6a8eedc3b7a3bd5fea1cf33" category="section-title">直接更改 SHVM</block>
+  <block id="37a128c0f52cb4d13156474d347e6749" category="paragraph">可以手动直接在 SHVM 上进行更改，也可以通过任何可用的自动化工具进行更改。有关详细信息，请参见 <block ref="33cb6a0164515f2f0ab6dc783a955d60" category="inline-link-macro-rx"></block>。</block>
+  <block id="98d26d31f279875593ba96ea9fcf9a47" category="paragraph">在直接更改主机池中的 SHVM 时，请确保每个 SHVM 的配置方式保持不变，这一点非常重要，否则用户在连接到不同的 SHVM 时可能会遇到不一致的体验。</block>
+  <block id="d595326786cb4f40d3d1a15219ccf443" category="admonition">默认情况下，不会备份单个 SHVM ，因为它们通常没有唯一的数据，并且基于标准化的 VM 映像。如果您要直接对 SHVM 进行自定义，请联系支持部门获取应用于主机池中某个 SHVM 的备份策略。</block>
+  <block id="063086acb3cd3bc4bcd71bfb7cfb937f" category="section-title">SysPrep 故障排除</block>
+  <block id="0d1e6919f6a6eee5c22d9157b93a54bc" category="paragraph">VDMs" 验证 " 功能使用 Microsoft 的 SysPrep 实用程序。验证失败时，最常见的罪魁祸首是 SysPrep 失败。要对故障进行故障排除，请从位于 CWT# 虚拟机上的 SysPrep 日志文件中启动，路径为 C ： \windows\system32\Sysprep\panther\setupact.log</block>
+  <block id="40672ff87dc9f7a95a33c7216ee64955" category="summary">在 VDMs 中删除用户访问</block>
+  <block id="49c9243c88915c1393a41cd9bfdb96f1" category="doc">正在删除用户访问权限</block>
+  <block id="1896c044e89799022bf8b538b4dd6c09" category="section-title">删除用户</block>
+  <block id="2b5800940254d7c3cd649bd2cc45b7b7" category="list-text">在 VDMs. 中删除此用户</block>
+  <block id="f67f2cec4fbbaba4514eb9129596a00d" category="list-text">导航到工作空间，选择 " 用户和组 " 选项卡，单击要删除的用户旁边的操作点，然后单击 " 删除 "<block ref="49be77491de3fa79d6b69f67f8eb9945" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b801b82b5f5c4f8c12461f94512f0c19" category="list-text">此时将显示一个弹出页面，其中包含用于延迟从目录删除和删除的选项<block ref="e4d8b0c6abbd02cd29ebc471401474f5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c96013281d49394c4634c7403a096b41" category="list-text">delay deletion 选项将等待 90 分钟，然后再删除此用户，从而可以取消此过程。建议选中此复选框。</block>
+  <block id="a6d17d9281a07ff82516c72f719bb1ec" category="list-text">从目录删除选项将删除 Active Directory 用户帐户。应选中此框。</block>
+  <block id="073d48bdb0d4f50dc5fb4b34aa19a824" category="list-text">使用以下方法之一通知 NetApp 删除了用户</block>
+  <block id="822e530092f151f5f1bc3374b221350a" category="list-text">此时将显示一个弹出页面，其中包含用于延迟从目录删除和删除的选项<block ref="bae6ebac53fd14801b2950e669918fa9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9d08fd81c8e53570265128157d3fff6" category="list-text">从目录删除选项将删除 Active Directory 用户帐户。建议不要选中此框，并且应按照您的组织用户帐户删除过程从 Active Directory 中删除帐户。</block>
+  <block id="9daa07991ed43a576fef187952656736" category="summary">获取对 VMS 虚拟机的域访问权限</block>
+  <block id="602fe15b3412a0a253f98540e696d1c0" category="doc">在 VDMs. 中生成域管理员凭据</block>
+  <block id="c0f2dc7167ea702651c95c23c8e2eb5a" category="section-title">特权访问管理</block>
+  <block id="d7e1a322cd93b3196ed2ce03fd02d619" category="paragraph">可以为 VDM 管理员授予 "PAM 审批者 " 角色，使管理员能够授予 PAM 请求。</block>
+  <block id="b5e0fb09be70dfe486265719adc87d1c" category="paragraph">PAM 请求将生成一个域级管理员帐户，用于在实时本地管理员凭据不足时在 VDMs VM 上进行身份验证。</block>
+  <block id="899617d12a06d268217a5883eb83b82c" category="paragraph">任何 VDMA 管理员都可以提交 PAM 请求，但只有具有 PAM 审批者角色的管理员才能批准这些请求。PAM 审批者可以申请并批准自己的申请。</block>
+  <block id="aea32282c28940c6ac542b7bd62a70b3" category="section-title">提交 PAM 请求</block>
+  <block id="31abc89f6fc876f29e040026e20bd6c2" category="list-title">提交 PAM 请求</block>
+  <block id="2cb738f01acc3f0c17681c8c76ab0a69" category="list-text">导航到右上角的管理员用户名，然后单击 " 设置 "</block>
+  <block id="bd0a2a93fffc24975ba1853fa1149f5b" category="list-text">选择 "PAM 请求 " 选项卡</block>
+  <block id="a571b504c697c594943d6e9c5c087775" category="list-text">单击 "+" 添加 "</block>
+  <block id="5ba8e29ceed72746a18a29d6708840d0" category="list-text">选择一个持续时间，之后这些凭据将过期</block>
+  <block id="2c1927771abff53406ba90bdea239e3f" category="list-text">选择部署</block>
+  <block id="2f25a0df47ff1cf7f053a4419e8a72ff" category="list-text">输入可提供凭据的电子邮件地址。此地址可以是任何电子邮件地址，允许向第三方（例如供应商）授予域凭据。</block>
+  <block id="1dbdc24971d689d0073e98af19eeb8fe" category="list-text">输入可接收文本消息的电话号码</block>
+  <block id="60aa2e4a9c8c74f16e29354ab59eee7a" category="list-text">输入日志和 PAM 审批者要查看的所有注释。</block>
+  <block id="5031e28239e8f60089e6ec2c48ce180e" category="list-text">单击 " 添加请求 "</block>
+  <block id="209774dd0e6ea93eb16bd5a8817c6f79" category="section-title">批准 PAM 请求</block>
+  <block id="8d6292bd781be3efa75297b09327c5d2" category="list-title">审核和批准 / 拒绝 PAM 请求</block>
+  <block id="d6d7d89a00dd2cdcfae222003e03198a" category="list-text">。导航到右上角的管理员用户名，然后单击 " 设置 "</block>
+  <block id="1e25fde4d5df52504c3c378803f196b5" category="list-text">选择 "PAM 请求 " 选项卡，然后单击该请求</block>
+  <block id="df08ce57f98ee9fe5ed9d38b2d6d2aeb" category="list-text">查看请求并单击 " 批准 " 或 " 拒绝 "</block>
+  <block id="004bf02cb11b8e69065a56d3e2f499e6" category="list-text">输入与批准 / 拒绝决定相关的任何注释</block>
+  <block id="ba1debcf140af674383a994a011f4378" category="section-title">使用 PAM 生成的凭据</block>
+  <block id="138f0560a7d09acb7363aa3e31c607a0" category="paragraph">获得批准后，将向提供的电子邮件地址发送一封确认电子邮件，以激活其凭据：</block>
+  <block id="546d735f3a5b13a8291f291ceca54e43" category="paragraph"><block ref="546d735f3a5b13a8291f291ceca54e43" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5455149d315bd4b66490fb089ea0b5fa" category="paragraph">按照 " 激活请求 " 链接，用户将转到下一页并通过 SMS 向其发送确认代码。此外，系统还会要求用户设置安全密码。</block>
+  <block id="08a40eb602733fda5f16835b431f8811" category="paragraph"><block ref="08a40eb602733fda5f16835b431f8811" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9264aee8437d85fc53a0b42286f24cb4" category="paragraph">成功验证帐户后，用户将收到用户名确认消息。</block>
+  <block id="4b0fe9652493940a58ca8d7a9f4c2cf3" category="paragraph"><block ref="4b0fe9652493940a58ca8d7a9f4c2cf3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="96f45a5169265d06aeb96ba4d7a88462" category="summary">VDM 服务产品摘要</block>
+  <block id="70522576fd7d9f0925f2cd2402000958" category="doc">虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMMS ）服务摘要</block>
+  <block id="8071162c8da0f29504c0a424813d8b5d" category="section-title">用户资源分配</block>
+  <block id="13bb5110902d802c85e027ab12a720d6" category="admonition">本文旨在准确描述 VDMs 服务的技术详细信息。服务详细信息可能会发生更改，本文不代表对 NetApp 与任何客户或合作伙伴之间的任何现有协议，合同或其他安排的修正或更改。</block>
+  <block id="c701b955dfdc6e4e8a190529f6746e1e" category="section-title">共享用户（ SKU ： vds-subs-shared-user ）</block>
+  <block id="8fad8c69e075fc2661cc81aabb605480" category="paragraph">共享用户会话在会话主机虚拟机（ SHVM ）上运行，最多具有 10 个用户会话。分配的共享 SHVM 总数将确保环境中每 10 个共享用户至少有一个共享 SHVM 。</block>
+  <block id="0898e2fd1f4443603008d48f7079c9b0" category="paragraph">* 为每个共享用户分配的资源： *</block>
+  <block id="4e425171e3570e45314831ebb1308604" category="list-text">8/10 的 vCPU 核心</block>
+  <block id="664d3d9378e9e2a9c16c8e7c60f922f9" category="list-text">6.4 GiB RAM</block>
+  <block id="7132ebab180a554b623b31f1cdfc9f34" category="list-text">25 GiB 存储</block>
+  <block id="f8039904415b55195907fb24d1c456a3" category="paragraph">* 共享 SHVM 技术详细信息： *</block>
+  <block id="35eff763be0c4a28131f478c7c9ca164" category="inline-link-macro">Essv3</block>
+  <block id="e4f79b9787dd939692283f7e2d3e0055" category="inline-link-macro">Eav4.</block>
+  <block id="b638de3e953add99aed10f2b788118b1" category="inline-link-macro">Easv4</block>
+  <block id="b7b861a49f90a10eb8dfc31f2966ada4" category="list-text">通常来自 <block ref="ed9cf184a4e673898e740e53c86b379f" category="inline-link-macro-rx"></block>， <block ref="89d1beed2396587db0cfbec9daa997bf" category="inline-link-macro-rx"></block> 和 <block ref="2be2d37ef8c06ff181019e1e04bdcc77" category="inline-link-macro-rx"></block> Azure 虚拟机系列。</block>
+  <block id="e08f66ea7c7779e53aadae330f2f06ec" category="list-text">128 GiB 标准 SSD 操作系统磁盘</block>
+  <block id="06580f6a8c004936f0620c96a2f49733" category="list-text">适用于虚拟桌面的 Windows 10 Enterprise</block>
+  <block id="c958b26f95acbc7f0d62d8afe7e53a55" category="list-text">FSLogix 连接的容器用户配置文件</block>
+  <block id="2cec20f97814ee0af3125fba1c58673c" category="list-text">为公司共享附加存储</block>
+  <block id="fd7a1486cadfbdcd514deb776e0f7789" category="section-title">VDI 用户（ SKU ： vDM-subs-vdi-user ）</block>
+  <block id="08dae8553f81b438e19b19846fde56f1" category="paragraph">VDI 用户的会话在不同时托管任何其他用户会话的专用会话主机虚拟机（ SHVM ）上运行。VDI SHVM 的总数等于环境中 VDI 用户的总数。</block>
+  <block id="8d87e391da5be7757ee01945bd114cb3" category="paragraph">* 为每个 VDI 用户分配的资源： *</block>
+  <block id="99014996950d469f81921dba47998707" category="list-text">2 个 vCPU 核心</block>
+  <block id="e3e64e60045c5d89b9f2addc887abdc8" category="list-text">8 GiB RAM</block>
+  <block id="35c71bd12d6cd818d6a57162805190c0" category="paragraph">* VDI SHVM 技术详细信息： *</block>
+  <block id="13e52e0f9b9e0dd182d82618fdb4316f" category="inline-link-macro">Dsv3</block>
+  <block id="cf1d671193d7766ada86fb0c46ea5e1f" category="inline-link-macro">第 4 期</block>
+  <block id="dbfca40478ffe4c54584645a377aeaa1" category="inline-link-macro">Dasv4</block>
+  <block id="cea32a3019fc5980c530f844a9636c55" category="list-text">通常来自 <block ref="9697dce2bcf67114d27237393027d225" category="inline-link-macro-rx"></block>， <block ref="095f2e699aba0331095e70b01fe9667c" category="inline-link-macro-rx"></block> 和 <block ref="3e036509970960bd5056e1b4d52236bd" category="inline-link-macro-rx"></block> Azure 虚拟机系列。</block>
+  <block id="537e7ec705664da3e36c58a0855228ff" category="list-text">128 GiB 标准 HDD 操作系统磁盘</block>
+  <block id="efdc8ab256c11020561f50283f989b21" category="section-title">GPU 用户（ SKU ： VDM-subs-GPU 用户）</block>
+  <block id="032f26c6c680e23da95a0768542a01ae" category="paragraph">GPU 用户的会话在不同时托管任何其他用户会话的专用会话主机虚拟机（ SHVM ）上运行。GPU SHVM 总数等于环境中的 GPU 用户总数。</block>
+  <block id="b08470dc26d2c68c8ffe0f05f8476db1" category="paragraph">* 为每个 GPU 用户分配的资源： *</block>
+  <block id="9aff0efcaf7aa8ebcc772798c38c7089" category="list-text">8 GiB GPU RAM</block>
+  <block id="e8d94bb007a86c862d791623a75a5b92" category="paragraph">* GPU SHVM 技术详细信息： *</block>
+  <block id="6b444377efe5058dab7dce405542b207" category="inline-link-macro">NVv3</block>
+  <block id="ab003bb2af504bdc1890c7156c12f90d" category="inline-link-macro">NVv4</block>
+  <block id="9ffe83ad6819ce8af9df026ee2a12ed3" category="list-text">通常来自 <block ref="4ea7c48cd6617457bac8cc896bd2553e" category="inline-link-macro-rx"></block> 和 <block ref="0b543f3bc3eca6927ae971a0a3b696e9" category="inline-link-macro-rx"></block> Azure 虚拟机系列。</block>
+  <block id="eff88cd2787a7835276dec68d5017f78" category="section-title">其他 VDMS SKU</block>
+  <block id="8e9a2b5aade33ca7d989a8ed0803d7cf" category="section-title">业务服务器（ SKU ： VDM-Azure-business-VM ）</block>
+  <block id="2f8f485c4d84e3dec215d3a46a97d940" category="paragraph">可以将业务服务器添加到环境中以支持应用程序和服务。</block>
+  <block id="833a21998d6bf8cf0bee6bfd9755368e" category="paragraph">* 至少为每个业务服务器 VM 分配： *</block>
+  <block id="cf9c8960c763aa7c2bce6433c941d296" category="list-text">8 个 vCPU 核心</block>
+  <block id="a1e4922c6323d230b8cb5eafbd7a29cc" category="list-text">64 GiB RAM</block>
+  <block id="d45e7a12c09e9a60a734fe0605f9b06b" category="list-text">Windows Server 2012R2/2016/2019</block>
+  <block id="0347997734e80a11ba4b7cf64ebecb9c" category="section-title">附加存储（ SKU ： VDM-1TB-storage-HPRSCLR ）</block>
+  <block id="edcb3f5efd3f6b86bd2423b4c444f237" category="paragraph">数据存储层 _ 是 VDMs 环境的主要存储机制，可在 Azure Files 或 Azure NetApp Files （ ANF ）上运行。所使用的存储技术取决于所购买的 VMS 用户总数。可以按 1 TiB 的增量添加额外容量。</block>
+  <block id="9d4ab1afe1fde908af9e0941140ee51c" category="paragraph">用户配置文件，用户数据，公司共享，应用程序数据和数据库都应从此存储服务运行。最佳做法是尽可能避免将数据存储在 VM 磁盘上。</block>
+  <block id="81e8630cd70b11de2e40c88a75df2fb4" category="paragraph">容量是每个用户分配量（ 25 GiB/ 用户）与购买的额外 TiB 存储之和。</block>
+  <block id="216ab40cda5c7c00ff42a4efb1827d89" category="cell">衡量指标</block>
+  <block id="90bd28628286d0369bc5566d1ad7183d" category="inline-link-macro">Azure Files GPv2</block>
+  <block id="83c096dc581b472a9917d93e1fd04742" category="cell"><block ref="83c096dc581b472a9917d93e1fd04742" category="inline-link-macro-rx"></block></block>
+  <block id="2ee56f38f9d514e4b86bd79b889a1fd6" category="inline-link-macro">ANF 标准</block>
+  <block id="78873ec8d46ffae6610437508a974c62" category="cell"><block ref="78873ec8d46ffae6610437508a974c62" category="inline-link-macro-rx"></block></block>
+  <block id="ebe38988f3aab7bae61bbd1f603f8ef4" category="inline-link-macro">ANF 高级版</block>
+  <block id="262554da97fff4ccb6d0f2ed70542373" category="cell"><block ref="262554da97fff4ccb6d0f2ed70542373" category="inline-link-macro-rx"></block></block>
+  <block id="7d83e72583af3d8a08a95140a5b1e3b6" category="cell">用户计数</block>
+  <block id="742be8b47e2b32917e7a987968259cf4" category="cell">10-49</block>
+  <block id="7ded92bbd56e1e2cf180aaf70625c732" category="cell">50-249</block>
+  <block id="0e702a773d399722dd841bcde5c8be15" category="cell">超过 250 个</block>
+  <block id="9dba50d3a2c2f26daddbf9d144c49772" category="cell">最小大小</block>
+  <block id="272fce320d1d39a47ad589ea9ebc2af6" category="cell">250 GiB</block>
+  <block id="09db5cf9dee1953ac746dd636e0db3e0" category="cell">4 TiB</block>
+  <block id="79073619fba8242703524f16870ff858" category="cell">IOPS</block>
+  <block id="82072969a6f4a521b38eec5bfcbfa026" category="cell">最多 1 ， 000 个</block>
+  <block id="26f11596d97c80193415e41391ec3e9a" category="cell">高达 250/TiB</block>
+  <block id="69a3be734586931892217fb735943524" category="cell">高达 1 ， 000 TiB</block>
+  <block id="7de5351aa3f0e1c125bbc2f8aea255b0" category="summary">在 VDMs. 中将用户分配给应用程序组</block>
+  <block id="b2466ad5a9f0a0d7121744e68a49f844" category="doc">将用户分配到应用程序组</block>
+  <block id="d16c04fc5ac4514bfdfbe3a54de8e738" category="section-title">用户分配方法</block>
+  <block id="cfde6c3cf9bd451a997dbc5fd9f8d36c" category="paragraph">用户通过 AD 安全组分配给会话主机虚拟机（ SHVM ）。</block>
+  <block id="4818e70e512f04e569bc147f99672272" category="paragraph">对于每个主机池，工作空间中的 " 用户和组 " 选项卡上都有一个链接的用户组。</block>
+  <block id="def81129d67404cd415cf4304789c9fa" category="paragraph">用户组以工作空间 ID （每个工作空间的 3-4 位数代码唯一）命名，后跟主机池的名称。</block>
+  <block id="5eeef880d45bcdffcb46dc1a185c466c" category="paragraph">例如，组 "jzsx 共享用户 " 会链接到 VDMs 中的共享用户主池。添加到 "jzsx 共享用户 " 的所有用户都将被分配对 " 共享用户 " 主机池中会话主机的访问权限。</block>
+  <block id="cad0242b88dfa70bcefc49b67f6c31b4" category="list-title">将用户分配到其主机池</block>
+  <block id="b48fbb3ce7b871fcd5d57edd7197dafc" category="list-text">导航到工作空间中的 " 用户和组 "</block>
+  <block id="8902181431f3e2dc1b5daa9240fadf23" category="list-text">可以通过编辑组中的用户列表将用户添加到组中。</block>
+  <block id="6c11b65ca6c64610ec3b88be316dc5a4" category="list-text">自动化将自动同步用户组的成员，以便为用户授予对相应主机池，应用程序组和应用程序的访问权限。</block>
+  <block id="e21bb10544386e99214ffb3d1f6f0e69" category="admonition">只能将用户分配给一个（并且只有一个）应用程序组。主机池的类型（共享， VDI 或 GPU ）必须与为 VDMS 购买的许可 SKU 匹配。如果用户和 / 或分配给多个应用程序组，则会出现发生原因资源争用问题，并可能影响在环境中工作的同事。</block>
+  <block id="0254b4a00a794d40ac59967a8fdbee36" category="sidebar">VDMS 文档</block>
+  <block id="bf647454e36069fd16f1a7a35cf6a865" category="sidebar">入门</block>
+  <block id="cf1ace6c8363604069581ea6bf9184b7" category="sidebar">服务摘要</block>
+  <block id="130ddfce9c28453883ccfe2da8b6d5ac" category="sidebar">教程</block>
+  <block id="ab9cffca9a784227a73f68923d4eaa2e" category="sidebar">安装应用程序</block>
+  <block id="bc3b078bb1277873f2454c615089dd7c" category="sidebar">更新 Deploy VM 映像</block>
+  <block id="80d4e33eb5b2f3446ea718da47a8df44" category="sidebar">将用户分配给应用程序组</block>
+  <block id="be23cb36ea7e7c431648affa1db4d34b" category="sidebar">获取域管理员凭据</block>
+  <block id="b2ea58473050d845231730d4a0ee13f3" category="sidebar">添加用户访问权限</block>
+  <block id="731bcdce0a7b844ed7b28fc80a338f4f" category="sidebar">删除用户访问权限</block>
+  <block id="f7dca0ff3aa4294b3f0d90f8edcaec5d" category="sidebar">添加 / 删除管理员</block>
+  <block id="063eef420fb2709abeb35146c37743ab" category="sidebar">VDM 常见问题解答</block>
+</blocks>

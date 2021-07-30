@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: administration.addremoveadmins.html 
+summary: 在 VDMs. 中添加和删除管理员 
+keywords:  
+---
+= 在 VDMs. 中添加和删除管理员
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 在 VDMs. 中添加管理员
+
+* 此过程由 NetApp 处理
+* 使用以下方法之一联系 NetApp VDMs 支持部门：
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+* 请为新管理员帐户提供以下信息：
++
+.. 合作伙伴代码
+.. 名字和姓氏
+.. 电子邮件地址
+.. 权限是否与中概述的默认设置不同 link:FAQ.vdsadminpermissions.html["管理员权限"]
+
+
+
+
+
+
+== 在 VDMs. 中删除管理员
+
+* 此过程由合作伙伴处理
++
+.. 导航到 "Admins" 选项卡
+.. 单击要删除的管理员右侧的 "Actions" 圆点
+.. 单击 " 删除 "
+.. 此时将显示一个确认框；单击 " 是，我确定 "image:administration.addremoveadmins01.png["900,900"]
+
+
+* 如果您有任何疑问，请使用以下方法之一联系 NetApp VDMs 支持：
++
+.. 电子邮件支持： VDSsupport@netapp.com
+.. 电话支持： 844.645.6789
+.. link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+
+

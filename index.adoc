@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: index.html 
+summary: 欢迎使用虚拟桌面托管服务文档门户。 
+keywords:  
+---
+= 虚拟桌面托管服务文档
+
+
+
+
+== 概述
+
+NetApp 的虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMA ）可解决在公有云中部署和管理虚拟桌面的复杂性，该服务作为受管 VDI 即服务平台提供。
+
+
+
+== 获取支持
+
+电子邮件支持： VDSsupport@netapp.com
+
+电话支持： 844.645.6789
+
+link:https://cloudjumper.zendesk.com["VDM 支持门户"]
+
+正常支持工作时间：星期一到星期五，中部时间上午 7 ： 00 到晚上 7 ： 00 。
+
+* 非工作时间（电话）支持仅通过电话提供。
+
+
+
+
+== Windows 虚拟桌面（ WVD ）客户端
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-windows-7-10["适用于 Windows 客户端的 Microsoft WVD"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-web["Microsoft WVD Web 客户端"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-android["适用于 Android 客户端的 Microsoft WVD"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-macos["适用于 macOS 客户端的 Microsoft WVD"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-ios["适用于 iOS 客户端的 Microsoft WVD"]
+
+
+
+
+== 服务组件
+
+VDM 是一种联合管理的服务产品，集 NetApp 和 Microsoft 的多种技术于一体，并在 EUC 市场应用 20 多年的最佳实践。下面列出了一个选定组件列表。由于客户需求不同，并非所有组件都在所有部署中使用。
+
+
+
+=== NetApp
+
+* link:https://cloud.netapp.com/saas-backup["NetApp SaaS Backup"]
++
+** VDMAS 中包含 NetApp SaaS 备份服务的许可。
+
+
+* link:https://azure.microsoft.com/en-us/services/netapp/["Azure NetApp 文件 (ANF)"]
++
+** 用户数超过 49 的部署的数据存储层基于 ANF 。
+** 对于用户数小于 250 的部署，将使用标准性能层。
+** 对于用户数超过 249 个的部署，将使用高级性能层。
+
+
+* link:https://cloud.netapp.com/cloud-backup["NetApp Cloud Backup"]
++
+** NetApp Cloud Backup 用于备份 ANF 存储卷。
+
+
+* link:https://cloud.netapp.com/cloud-sync-service["NetApp Cloud Sync"]
++
+** 当 ANF 是数据存储层技术时，可以使用 NetApp Cloud Sync 将数据迁移到 VMS 中。
+
+
+* link:https://cloud.netapp.com/cloud-insights["NetApp Cloud Insights"]
++
+** 我们的支持和服务团队使用 NetApp Cloud Insights 进行性能监控。
+
+
+* link:https://cloudjumper.zendesk.com["NetApp VMS 支持"]
++
+** VDM 包括由 NetApp 专业支持团队提供的全天候意外事件支持和入职服务
+
+
+
+
+
+
+=== Microsoft
+
+* link:https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#storage-account-scale-targets["Azure 文件（ AF ）"]
++
+** 用户数少于 50 的部署所使用的数据存储层基于 AF 技术。我们会在 GPv2 存储帐户中配置 " 事务优化 " 层。
+** 对于用户数超过 49 的部署，使用 ANF 。
+
+
+* link:https://azure.microsoft.com/en-us/services/backup/["Azure Cloud Backup"]
++
+** Azure Cloud Backup 用于备份 AF 存储卷和虚拟机。
+
+
+* link:https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning["Azure 文件同步"]
++
+** 当 AF 是数据存储层技术时，可以使用 Azure File Sync 将数据迁移到 VDMS-OMS 中。
+
+
+* link:https://azure.microsoft.com/en-us/services/azure-defender/["Azure Defender""]
++
+** VDM 激活（并包括许可） Azure 路由， Azure 路由是环境中所有虚拟机上的一项高级安全服务。管理和管理由客户和 / 或其 IT 服务提供商通过 Azure 安全中心执行。管理 Azure 安全中心不是 VDMOS 中包含的服务。
+
+
+* link:https://azure.microsoft.com/en-us/services/virtual-machines/windows/["Azure 虚拟机"]
++
+** VDM 在很大程度上依赖于基于 Windows 的 Azure 虚拟机来托管用户会话和客户应用程序。
+
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview["Azure 虚拟网络对等"]
++
+** VDM 可以利用 Azure 虚拟网络对等功能与客户的现有 Active Directory 域控制器（ AD DC ）集成。
+
+
+* link:https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways["Azure VPN"]
++
+** VDM 可以利用 Azure 站点到站点 VPN 与客户的现有 Active Directory 域控制器（ AD DC ）集成。
+
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/overview["Windows 虚拟桌面（ WVD ）"]
++
+** VDM 利用原生 WVD 功能支持用户会话代理，身份验证， Windows 许可等。
+
+
+* link:https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect["Azure AD Connect"]
++
+** WVD 要求本地域（ AD DC ）和 Azure AD 通过 Azure AD Connect 应用程序同步。
+
+
+* link:https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/["Microsoft 365 （ M365 ）"]
++
+** 会话主机的 WVD 用户会话和 Windows 10 Enterprise 可通过特定的 M365 许可证类型授予用户许可。将适当的 M365 许可分配给所有 VDMA 用户是 WVD 和 VDMA 的要求。此许可不包括在 VDMs.客户和 / 或其 IT 服务提供商有责任管理 M365 许可。
+
+
+

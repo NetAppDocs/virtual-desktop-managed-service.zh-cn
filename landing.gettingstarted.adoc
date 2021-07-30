@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: landing.gettingstarted.html 
+summary: VDMs 的入门登录页面 
+keywords:  
+---
+= 成功执行 VDMS-7 的入门步骤
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 什么是 VDMIs ？
+
+虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMs ）是 NetApp 托管的 DaaS 解决方案，可用于外包虚拟桌面配置，部署和基础架构，让您可以专注于用户和应用程序，每位用户只需支付一个月的费用。
+
+image::landing.gettingstarted-3b8c5.png[登录 .gettingstarted 3b8c5]
+
+
+
+== 设置 VDMS
+
+VDMA 实施项目包括以下内容：
+
+. link:serviceoffering.prerequisites.html["前提条件"]
+. 客户环境审核启动电话会议
+. NetApp 为您提供 WVD 基础架构和工作空间
+. 交互式实时培训课程
+. 将数据，应用程序和用户添加到自定义的 WVD 中
+. 测试环境，用户桌面和连接
+. 上线！
+
+
+
+
+== 下一步是什么？
+
+要确保部署成功，及时，请从以下步骤开始：
+
+. 获取 link:serviceoffering.prerequisites.html#m365-licensing["适当的 Microsoft 365 许可"] 适用于您的用户
+. 创建 VDMS-A 用户列表
+. 创建应用程序，介质，许可证和供应商信息列表—记下可能需要特殊注意事项或供应商协助的任何数据库或旧版应用程序
+. 确定需要传输的数据
+. 如果使用现有 Active Directory 实例进行部署，请查看这些内容 link:serviceoffering.prerequisites.html#existing-ad-integration["其他前提条件"]
+

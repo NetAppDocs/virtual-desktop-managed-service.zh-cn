@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: administration.pam.html 
+summary: 获取对 VMS 虚拟机的域访问权限 
+keywords:  
+---
+= 在 VDMs. 中生成域管理员凭据
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== 特权访问管理
+
+可以为 VDM 管理员授予 "PAM 审批者 " 角色，使管理员能够授予 PAM 请求。
+
+PAM 请求将生成一个域级管理员帐户，用于在实时本地管理员凭据不足时在 VDMs VM 上进行身份验证。
+
+任何 VDMA 管理员都可以提交 PAM 请求，但只有具有 PAM 审批者角色的管理员才能批准这些请求。PAM 审批者可以申请并批准自己的申请。
+
+
+
+=== 提交 PAM 请求
+
+.提交 PAM 请求
+. 导航到右上角的管理员用户名，然后单击 " 设置 "
+. 选择 "PAM 请求 " 选项卡
+. 单击 "+" 添加 "
++
+.. 选择一个持续时间，之后这些凭据将过期
+.. 选择部署
+.. 输入可提供凭据的电子邮件地址。此地址可以是任何电子邮件地址，允许向第三方（例如供应商）授予域凭据。
+.. 输入可接收文本消息的电话号码
+.. 输入日志和 PAM 审批者要查看的所有注释。
+
+
+. 单击 " 添加请求 "
+
+
+
+
+=== 批准 PAM 请求
+
+.审核和批准 / 拒绝 PAM 请求
+. 。导航到右上角的管理员用户名，然后单击 " 设置 "
+. 选择 "PAM 请求 " 选项卡，然后单击该请求
+. 查看请求并单击 " 批准 " 或 " 拒绝 "
+. 输入与批准 / 拒绝决定相关的任何注释
+
+
+
+
+=== 使用 PAM 生成的凭据
+
+获得批准后，将向提供的电子邮件地址发送一封确认电子邮件，以激活其凭据：
+
+[role="thumb"]
+image:administration.pam-c2382.png["900,900"]
+
+按照 " 激活请求 " 链接，用户将转到下一页并通过 SMS 向其发送确认代码。此外，系统还会要求用户设置安全密码。
+
+[role="thumb"]
+image:administration.pam-ea1ea.png["900,900"]
+
+成功验证帐户后，用户将收到用户名确认消息。
+
+[role="thumb"]
+image:administration.pam-01f30.png["900,900"]
