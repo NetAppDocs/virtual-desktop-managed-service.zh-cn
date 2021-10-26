@@ -1,5 +1,13 @@
+---
+settings:
+  name: Virtual Desktop Managed Service
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: true
+    langs: zh-cn,us-en,ja-jp
 sidebar:
-  
   entries:
   - title: VDMS 文档
     url: "/index.html"
