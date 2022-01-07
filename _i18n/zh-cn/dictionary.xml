@@ -298,7 +298,6 @@
   <block id="c96013281d49394c4634c7403a096b41" category="list-text">delay deletion 选项将等待 90 分钟，然后再删除此用户，从而可以取消此过程。建议选中此复选框。</block>
   <block id="a6d17d9281a07ff82516c72f719bb1ec" category="list-text">从目录删除选项将删除 Active Directory 用户帐户。应选中此框。</block>
   <block id="073d48bdb0d4f50dc5fb4b34aa19a824" category="list-text">使用以下方法之一通知 NetApp 删除了用户</block>
-  <block id="822e530092f151f5f1bc3374b221350a" category="list-text">此时将显示一个弹出页面，其中包含用于延迟从目录删除和删除的选项<block ref="bae6ebac53fd14801b2950e669918fa9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d9d08fd81c8e53570265128157d3fff6" category="list-text">从目录删除选项将删除 Active Directory 用户帐户。建议不要选中此框，并且应按照您的组织用户帐户删除过程从 Active Directory 中删除帐户。</block>
   <block id="9daa07991ed43a576fef187952656736" category="summary">获取对 VMS 虚拟机的域访问权限</block>
   <block id="602fe15b3412a0a253f98540e696d1c0" category="doc">在 VDMs. 中生成域管理员凭据</block>
@@ -421,4 +420,5 @@
   <block id="731bcdce0a7b844ed7b28fc80a338f4f" category="sidebar">删除用户访问权限</block>
   <block id="f7dca0ff3aa4294b3f0d90f8edcaec5d" category="sidebar">添加 / 删除管理员</block>
   <block id="063eef420fb2709abeb35146c37743ab" category="sidebar">VDM 常见问题解答</block>
+  <block id="a7f7992bbd09f7d531e95587a1bb3f68" category="list-text">此时将显示一个弹出窗口，其中包含延迟删除和从目录删除的选项<block ref="bae6ebac53fd14801b2950e669918fa9" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
