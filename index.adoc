@@ -49,11 +49,6 @@ VDM 是一种联合管理的服务产品，集 NetApp 和 Microsoft 的多种技
 
 === NetApp
 
-* link:https://cloud.netapp.com/saas-backup["NetApp SaaS Backup"]
-+
-** VDMAS 中包含 NetApp SaaS 备份服务的许可。
-
-
 * link:https://azure.microsoft.com/en-us/services/netapp/["Azure NetApp 文件 (ANF)"]
 +
 ** 用户数超过 49 的部署的数据存储层基于 ANF 。
