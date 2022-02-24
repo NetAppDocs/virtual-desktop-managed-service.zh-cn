@@ -17,7 +17,7 @@ NetApp 的虚拟桌面托管服务（ Virtual Desktop Managed Service ， VDMA �
 
 == 获取支持
 
-电子邮件支持： VDSsupport@netapp.com
+电子邮件支持： support@spotpc.netapp.com
 
 电话支持： 844.645.6789
 

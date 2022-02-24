@@ -191,9 +191,6 @@
   <block id="f89a22674e8a92e50b2f8aad878c2dc1" category="section-title">服务组件</block>
   <block id="221183f642ade47cc467abe7b9812d30" category="paragraph">VDM 是一种联合管理的服务产品，集 NetApp 和 Microsoft 的多种技术于一体，并在 EUC 市场应用 20 多年的最佳实践。下面列出了一个选定组件列表。由于客户需求不同，并非所有组件都在所有部署中使用。</block>
   <block id="cfaa375bf6c7f9fcc1bc04d4f30c9154" category="section-title">NetApp</block>
-  <block id="72f6c2ed3549f0d5f63c9fac2754abf7" category="inline-link-macro">NetApp SaaS Backup</block>
-  <block id="1ad7c199b2daa5bebcbcd0a0354d629e" category="list-text"><block ref="1ad7c199b2daa5bebcbcd0a0354d629e" category="inline-link-macro-rx"></block></block>
-  <block id="b47230a05c1b0d89e678d8679312f734" category="list-text">VDMAS 中包含 NetApp SaaS 备份服务的许可。</block>
   <block id="8f53b5241aa3284f9058318dcbc2504d" category="inline-link-macro">Azure NetApp 文件 (ANF)</block>
   <block id="807c90ee9f6f726952c2838ef0c351e1" category="list-text"><block ref="807c90ee9f6f726952c2838ef0c351e1" category="inline-link-macro-rx"></block></block>
   <block id="e7c7def4c520da02d9d2de3af21bfe23" category="list-text">用户数超过 49 的部署的数据存储层基于 ANF 。</block>
@@ -421,4 +418,5 @@
   <block id="f7dca0ff3aa4294b3f0d90f8edcaec5d" category="sidebar">添加 / 删除管理员</block>
   <block id="063eef420fb2709abeb35146c37743ab" category="sidebar">VDM 常见问题解答</block>
   <block id="a7f7992bbd09f7d531e95587a1bb3f68" category="list-text">此时将显示一个弹出窗口，其中包含延迟删除和从目录删除的选项<block ref="bae6ebac53fd14801b2950e669918fa9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="54defe6db64b2cfbdd2cd6ccc464206d" category="paragraph">电子邮件支持： support@spotpc.netapp.com</block>
 </blocks>
