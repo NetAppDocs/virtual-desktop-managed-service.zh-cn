@@ -5,6 +5,7 @@ summary: 欢迎使用虚拟桌面托管服务文档门户。
 keywords:  
 ---
 = 虚拟桌面托管服务文档
+:allow-uri-read: 
 
 
 

@@ -8,6 +8,7 @@ keywords:
 :toc: macro
 :hardbreaks:
 :toclevels: 2
+:allow-uri-read: 
 :toc: 
 :toclevels: 2
 :nofooter: 
@@ -40,7 +41,7 @@ NOTE: 本文旨在准确描述 VDMs 服务的技术详细信息。服务详细�
 
 * 共享 SHVM 技术详细信息： *
 
-* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]，  和  Azure 虚拟机系列。
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]， link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev4-esv4-series["Eav4."] 和 link:https://docs.microsoft.com/en-us/azure/virtual-machines/eav4-easv4-series["Easv4"] Azure 虚拟机系列。
 * 128 GiB 标准 SSD 操作系统磁盘
 * 适用于虚拟桌面的 Windows 10 Enterprise
 * FSLogix 连接的容器用户配置文件
@@ -62,7 +63,7 @@ VDI 用户的会话在不同时托管任何其他用户会话的专用会话主�
 
 * VDI SHVM 技术详细信息： *
 
-* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series["Dsv3"]，  和  Azure 虚拟机系列。
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series["Dsv3"]， link:https://docs.microsoft.com/en-us/azure/virtual-machines/dv4-dsv4-series["第 4 期"] 和 link:https://docs.microsoft.com/en-us/azure/virtual-machines/dav4-dasv4-series["Dasv4"] Azure 虚拟机系列。
 * 128 GiB 标准 HDD 操作系统磁盘
 * 适用于虚拟桌面的 Windows 10 Enterprise
 * FSLogix 连接的容器用户配置文件
@@ -83,7 +84,7 @@ GPU 用户的会话在不同时托管任何其他用户会话的专用会话主�
 
 * GPU SHVM 技术详细信息： *
 
-* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series["NVv3"] 和  Azure 虚拟机系列。
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series["NVv3"] 和 link:https://docs.microsoft.com/en-us/azure/virtual-machines/nvv4-series["NVv4"] Azure 虚拟机系列。
 * 128 GiB 标准 HDD 操作系统磁盘
 * 适用于虚拟桌面的 Windows 10 Enterprise
 * FSLogix 连接的容器用户配置文件
@@ -106,7 +107,7 @@ GPU 用户的会话在不同时托管任何其他用户会话的专用会话主�
 * 64 GiB RAM
 * 128 GiB 标准 SSD 操作系统磁盘
 * Windows Server 2012R2/2016/2019
-* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]，  和  Azure 虚拟机系列。
+* 通常来自 link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev3-esv3-series["Essv3"]， link:https://docs.microsoft.com/en-us/azure/virtual-machines/ev4-esv4-series["Eav4."] 和 link:https://docs.microsoft.com/en-us/azure/virtual-machines/eav4-easv4-series["Easv4"] Azure 虚拟机系列。
 
 
 

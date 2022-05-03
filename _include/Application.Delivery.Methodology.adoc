@@ -1,4 +1,5 @@
 = 应用程序交付方法
+:allow-uri-read: 
 
 
 
